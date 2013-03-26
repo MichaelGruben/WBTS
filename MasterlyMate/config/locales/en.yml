@@ -1,5 +1,38 @@
-# Sample localization file for English. Add more files in this directory for other locales.
+﻿# Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+ page:
+  language:
+   german: "German"
+   english: "English"
+   select: "Select language"
+  breadcrumb:
+   start: "Welcome"
+   registration: "Registration"
+ login:
+  notRegistered: "not registered?"
+  submit: "login"
+  successful: "Welcome"
+  failed: "Wrong username or password"
+ logout:
+  submit: "logout"
+  successful: "You have successfully logged out"
+ register:
+  fieldsetLegend: "Registration"
+  successful: "You have been successfully registered"
+  submit: "register"
+ activerecord:
+  models:
+   user: "User"
+  attributes:
+   user:
+    firstName: "Firstname"
+    lastName: "Lastname"
+    birthdate: "Birthdate"
+    email: "E-Mail"
+    username: "Username"
+    password: "Password"
+    password_digest: "Password"
+    password_confirmation: "Password confirmation"
+    password_digest_confirmation: "Password confirmation"

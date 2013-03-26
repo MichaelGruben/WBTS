@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MasterlyMate</title>
+  <%= stylesheet_link_tag "frontend" %>
+  <%= javascript_include_tag "frontend" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="main">
+
+	<div id="header">
+		<div class="language_switcher">
+			<%= t "page.language.select" %>: 
+			<%= link_to t("page.language.german"), locale_path('de') %> | 
+			<%= link_to t("page.language.english"), locale_path('en') %>
+		</div>
+		<div align="right" style="margin-top: 50px; margin-right: 5px;">
+			<%= render_breadcrumbs :separator => ' > ' %>
+		</div>
+	</div>
+	<div id="navigation">
+		<%= render partial: "shared/login" %>
+	</div>
+	<div id="content">
+
+		<% if flash[:notice] %>
+			<div class="notice">
+				<%= flash[:notice] %>
+			</div>
+		<% elsif flash[:error] %>
+			<div class="error">
+				<%= flash[:error] %>
+			</div>
+		<% elsif flash[:alert] %>
+			<div class="error">
+				<%= flash[:alert] %>
+			</div>
+		<% end %>
+
+		<%= yield %>
+	</div>
+	<div style="clear: both;"></div>
+
+</div>
+
+<div id="footer">&copy;2013 MasterlyMate</div>
+
+</body>
+</html>

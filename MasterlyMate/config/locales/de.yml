@@ -1,0 +1,38 @@
+﻿# Sample localization file for German. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+ page:
+  language:
+   german: "Deutsch"
+   english: "Englisch"
+   select: "Sprache wählen"
+  breadcrumb:
+   start: "Willkommen"
+   registration: "Registrierung"
+ login:
+  notRegistered: "Noch nicht registriert?"
+  submit: "anmelden"
+  successful: "Willkommen"
+  failed: "Fehlerhafter Nutzername oder Kennwort"
+ logout:
+  submit: "abmelden"
+  successful: "Sie wurden erfolgreich abgemeldet"
+ register:
+  fieldsetLegend: "Registrierung"
+  successful: "Sie haben sich erfolgreich registriert"
+  submit: "registrieren"
+ activerecord:
+  models:
+   user: "Benutzer"
+  attributes:
+   user:
+    firstName: "Vorname"
+    lastName: "Nachname"
+    birthdate: "Geburtsdatum"
+    email: "E-Mail"
+    username: "Nutzername"
+    password: "Kennwort"
+    password_digest: "Kennwort"
+    password_confirmation: "Kennwort wiederholen"
+    password_digest_confirmation: "Kennwort wiederholen"
