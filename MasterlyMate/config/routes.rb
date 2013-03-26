@@ -1,4 +1,28 @@
 MasterlyMate::Application.routes.draw do
+    
+  scope "(:locale)", :locale => /en|de/ do
+    resources :users, only: [:new, :create]
+    resources :ranks
+    resources :groups
+    resources :assessments
+    resources :locations
+    resources :topics
+    resources :wbts
+  end
+  
+  match "/:locale" => "frontend#index"
+  match "/:locale/administrator" => "backend#index", as: "admin"
+  match "/:locale/users" => "users#index"
+  root :to => "frontend#index"
+  
+  match "/:locale/login" => "sessions#new", as: "login"
+  match "/:locale/sessions" => "sessions#create", as: "sessions"
+  match "/:locale/logout" => "sessions#destroy", as: "logout"
+  #get "login" => "sessions#new", as: "login"
+  #post "sessions" => "sessions#create", as: "sessions"
+  #delete "logout" => "sessions#destroy", as: "logout"
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
