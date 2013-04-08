@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body { color: #FFFFFF; text-align: center; word-wrap: break-word; background-image: url('/assets/background.png'); background-repeat: repeat-x; }
+#main { background-color: #F26742; text-align: left; width: 1020px; margin: 0 auto; border: 2px solid #000000; padding: 0; }
+#header { height: 100px; background-image: url('/assets/mm_header.png'); background-repeat: no-repeat; margin: 0; }
+#navigation { float: left; width: 264px; padding: 5px; overflow-x: auto; }
+#content { float: right; width: 728px; padding: 5px; min-height: 300px; border-left: 2px solid #000000; }
+#footer { color: #613109; text-align: center; padding: 10px 0; margin: 20px 50px; border-top: 1px solid #613109; }
+.language_switcher, .language_switcher a { margin-right: 5px; text-decoration: none; color: #FFFFFF !important; font-weight: bold; text-align: right; }
+.error, .notice { border: 1px solid #000000; color: #000000; font-style: italic; font-size: .8em; padding: 5px; margin: 2px; }
+.error { background-color: #FF0000; }
+.notice { background-color: #00FF00; }
+fieldset { border-color: #000000; }
+fieldset.login { width: 230px; }
+label { color: #613109; }
+legend { font-weight: bold; }
+a { text-decoration: none; font-style: italic; color: #613109; }
+input[type="submit"] { border: 1px solid #FFFFFF; background-color: #613109; padding: 5px; color: #FFFFFF; cursor: pointer; }

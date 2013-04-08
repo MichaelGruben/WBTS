@@ -1,0 +1,27 @@
+<% if !session[:user_id] %>
+
+	<fieldset class="login">
+		<legend>Login</legend>
+		<%= form_tag sessions_path do %>
+			<table cellspacing="0" cellpadding="2" border="0">
+				<tr>
+					<td><%= label_tag :username, t("activerecord.attributes.user.username") %></td>
+					<td><%= text_field_tag :username, params[:username] %></td>
+				</tr>
+				<tr>
+					<td><%= label_tag :password, t("activerecord.attributes.user.password") %></td>
+					<td><%= password_field_tag :password %></td>
+				</tr>
+			</table>
+			<%= submit_tag t("login.submit") %>
+		<% end %>
+		<p>
+			<%= link_to t("login.notRegistered"), new_user_path %>
+		</p>
+	</fieldset>
+
+<% else %>
+
+	<%= link_to t("logout.submit"), logout_path, method: :delete %>
+
+<% end %>
