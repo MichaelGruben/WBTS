@@ -1,0 +1,36 @@
+<%= form_for(@user) do |f| %>
+
+  <%= validateFieldsOf @user %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, readonly: writeProtected, disabled: writeProtected %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, readonly: writeProtected, disabled: writeProtected %>
+  </div>
+  <div class="field">
+    <%= f.label :firstName %><br />
+    <%= f.text_field :firstName, readonly: writeProtected, disabled: writeProtected %>
+  </div>
+  <div class="field">
+    <%= f.label :lastName %><br />
+    <%= f.text_field :lastName, readonly: writeProtected, disabled: writeProtected %>
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.text_field :birthdate, readonly: writeProtected, disabled: writeProtected %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex, readonly: writeProtected, disabled: writeProtected %>
+  </div>
+  
+  <% if !writeProtected %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+  
+<% end %>

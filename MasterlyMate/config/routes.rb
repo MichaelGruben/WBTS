@@ -1,7 +1,7 @@
 MasterlyMate::Application.routes.draw do
     
   scope "(:locale)", :locale => /en|de/ do
-    resources :users, only: [:new, :create]
+    resources :users#, only: [:new, :create]
     resources :ranks
     resources :groups
     resources :assessments
@@ -10,17 +10,17 @@ MasterlyMate::Application.routes.draw do
     resources :wbts
   end
   
-  match "/:locale" => "frontend#index"
+  # routes without locale
+  match "/administrator" => "backend#index", as: "admin"
+  match "/" => "frontend#index", as: "root"
+  
+  # routes  with locale
   match "/:locale/administrator" => "backend#index", as: "admin"
   match "/:locale/users" => "users#index"
-  root :to => "frontend#index"
-  
   match "/:locale/login" => "sessions#new", as: "login"
   match "/:locale/sessions" => "sessions#create", as: "sessions"
   match "/:locale/logout" => "sessions#destroy", as: "logout"
-  #get "login" => "sessions#new", as: "login"
-  #post "sessions" => "sessions#create", as: "sessions"
-  #delete "logout" => "sessions#destroy", as: "logout"
+  match "/:locale/" => "frontend#index", as: "root"
   
   
   # The priority is based upon order of creation:

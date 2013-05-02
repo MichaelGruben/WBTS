@@ -3,13 +3,7 @@
 	
 	<%= form_for @user do |f| %>
 	
-		<% if @user.errors.any? %>
-			<ul>
-				<% @user.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		<% end %>
+		<%= validateFieldsOf @user %>
 	
 		<table cellspacing="0" cellpadding="2" border="0">
 			<tr>
