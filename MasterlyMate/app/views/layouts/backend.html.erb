@@ -3,22 +3,15 @@
 <head>
   <title>MasterlyMate - Administrator</title>
   <%= stylesheet_link_tag "backend" %>
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
+  <script src="/assets/application.js?body=1" type="text/javascript"></script>
   <%= javascript_include_tag "backend" %>
-  <%= csrf_meta_tags %>
+  <%= ensureSecurity %>
 </head>
 <body>
-
-<% if flash[:notice] %>
-	<div class="notice">
-		<%= flash[:notice] %>
-	</div>
-<% elsif flash[:error] %>
-	<div class="error">
-		<%= flash[:error] %>
-	</div>
-<% end %>
-
-<%= yield %>
-
+	<%= render partial: "shared/flash_message" %>
+	<%= yield %>
 </body>
 </html>

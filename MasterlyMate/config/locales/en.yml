@@ -14,7 +14,7 @@ en:
   notRegistered: "not registered?"
   submit: "login"
   successful: "Welcome"
-  failed: "Wrong username or password"
+  failed: "Wrong access. Please try again."
  logout:
   submit: "logout"
   successful: "You have successfully logged out"
@@ -22,9 +22,17 @@ en:
   fieldsetLegend: "Registration"
   successful: "You have been successfully registered"
   submit: "register"
+ update:
+  successful: "Change successful"
+  failed: "Change failed"
+ destroy:
+  successful: " successfully removed"
+  failed: " could not be removed"
+  ensuring: "Do you really want to remove the entry?"
  activerecord:
   models:
    user: "User"
+   userPlural: "Users"
   attributes:
    user:
     firstName: "Firstname"
@@ -32,6 +40,7 @@ en:
     birthdate: "Birthdate"
     email: "E-Mail"
     username: "Username"
+    sex: "Sex"
     password: "Password"
     password_digest: "Password"
     password_confirmation: "Password confirmation"

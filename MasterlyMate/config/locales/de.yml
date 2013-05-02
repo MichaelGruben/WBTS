@@ -14,17 +14,25 @@ de:
   notRegistered: "Noch nicht registriert?"
   submit: "anmelden"
   successful: "Willkommen"
-  failed: "Fehlerhafter Nutzername oder Kennwort"
+  failed: "Falsche Zugangsdaten. Bitte versuche es erneut."
  logout:
   submit: "abmelden"
-  successful: "Sie wurden erfolgreich abgemeldet"
+  successful: "Du hast dich erfolgreich abgemeldet"
  register:
   fieldsetLegend: "Registrierung"
-  successful: "Sie haben sich erfolgreich registriert"
+  successful: "Du hast dich erfolgreich registriert"
   submit: "registrieren"
+ update:
+  successful: "Änderungen wurden übernommen"
+  failed: "Änderungen konnten nicht übernommen werden"
+ destroy:
+  successful: " wurde erfolgreich entfernt"
+  failed: " konnte nicht entfernt werden"
+  ensuring: "Möchtest Du den Eintrag wirklich entfernen?"
  activerecord:
   models:
    user: "Benutzer"
+   userPlural: "Benutzer"
   attributes:
    user:
     firstName: "Vorname"
@@ -32,6 +40,7 @@ de:
     birthdate: "Geburtsdatum"
     email: "E-Mail"
     username: "Nutzername"
+    sex: "Geschlecht"
     password: "Kennwort"
     password_digest: "Kennwort"
     password_confirmation: "Kennwort wiederholen"

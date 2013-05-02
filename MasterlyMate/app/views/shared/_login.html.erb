@@ -22,6 +22,7 @@
 
 <% else %>
 
-	<%= link_to t("logout.submit"), logout_path, method: :delete %>
+	<br />
+	<%= link_to content_tag(:span, t("logout.submit"), class: "button"), logout_path, method: :delete %>
 
 <% end %>
