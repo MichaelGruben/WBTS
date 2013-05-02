@@ -1,0 +1,11 @@
+<div><h1>mein WBT</h1>
+	
+</div>
+
+<div>
+<iframe src="http://localhost:3000/<%= @site %>" width="1024px" height="768px" frameborder = 0 name="wbtframe">
+    <p>Placeholder text; only shows up if the page DOESN'T render!</p>
+</iframe>
+<%= javascript_tag "pipwerks.SCORM.init()"%>
+<%= button_to_function "einKnopf", "alert(pipwerks.SCORM.get('cmi.success_status'))" %>
+</div>

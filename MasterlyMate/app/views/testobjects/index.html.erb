@@ -1,0 +1,21 @@
+<h1>Listing testobjects</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @testobjects.each do |testobject| %>
+  <tr>
+    <td><%= link_to 'Show', testobject %></td>
+    <td><%= link_to 'Edit', edit_testobject_path(testobject) %></td>
+    <td><%= link_to 'Destroy', testobject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Testobject', new_testobject_path %>

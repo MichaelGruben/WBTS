@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(:version => 20130425191644) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "courses", :force => true do |t|
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "mainFile"
+    t.string   "description"
+    t.string   "name"
+    t.string   "pathToFile"
+    t.integer  "forRank"
+  end
+
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -35,6 +45,11 @@ ActiveRecord::Schema.define(:version => 20130425191644) do
 
   create_table "ranks", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "testobjects", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
