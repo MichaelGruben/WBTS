@@ -44,7 +44,6 @@ MasterlyMate::Application.routes.draw do
     resources :locations
     resources :topics
     resources :wbts
-    resources :courses
   end
   
   # routes without locale
@@ -57,8 +56,8 @@ MasterlyMate::Application.routes.draw do
   match "/:locale/login" => "sessions#new", as: "login"
   match "/:locale/sessions" => "sessions#create", as: "sessions"
   match "/:locale/logout" => "sessions#destroy", as: "logout"
-  match "/:locale/courses/:id" => "courses#start"
-  match "/:locale/upload/:pathToFile/:mainFile" => redirect("/upload/%{pathToFile}/%{mainFile}")
+  match "/:locale/wbts/:id" => "wbts#start"
+  match "/:locale/upload/:file/:mainFile" => redirect("/upload/%{file}/%{mainFile}")
   match "/:locale/" => "frontend#index", as: "root"
   
   

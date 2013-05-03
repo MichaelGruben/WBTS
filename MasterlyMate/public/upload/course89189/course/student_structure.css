@@ -1,0 +1,468 @@
+/* CSS Document */
+
+body					{ margin: 0; padding: 0; text-align: center; }
+
+div						{ margin: 0; padding: 0; }
+
+img						{ margin: 0; padding: 0; border-style: none; behavior:url('pngbehavior.htc'); }
+
+iframe					{ margin-top: 20px; }
+/* 800x600 template */
+.small iframe			{ margin-top: 5px; }
+
+#waterMark				{ height: 0; width: 0; }
+
+
+/* navigational and theme elements */
+
+.nav					{ height: 80px; overflow: hidden; width: 100%; }
+	
+	.nav .logo				{ margin: 0; padding: 0; float: left; }
+	
+	.nav .button			{ float: right; }
+	
+		.nav .button img		{ margin-right: 10px; padding: 0; }
+		
+	.pageTitle				{ float: left; margin: 50px 0 0 10px; }
+		
+		
+.infoBar				{ height: 19px; line-height: 19px; overflow: hidden; width: 100%; }
+
+	.infoBar .pageNum		{ float: right; display: inline; margin-right: 10px; }
+
+	.infoBar .breadCrumb	{ float: left; display: inline; margin-left: 10px; }
+	
+
+.contentBody			{ background-position: 0 -20px; text-align: left; }
+
+
+.launchBox				{ position: relative; margin: 10px auto; padding: 0; width: 500px; height: auto; }
+
+	.launchBox .nav			{ margin-bottom: 10px; }
+
+	.launchBox .textHeadline{ margin: 0 10px 10px; }
+	
+	.launchBox p			{ margin: 0 10px 10px; }
+	
+	.launchBtn				{ margin: 0 10px 10px; }
+	
+
+.footer					{ margin: 10px auto; text-align: center; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px; }
+
+
+/* objects */
+
+.editPanel				{ position: absolute; visibility: hidden; z-index: 1; padding: 5px; width: auto; top: 30px; border: solid 1px #666; background-color: #FFF; }
+
+	.editPanel p			{ margin: 0 0 5px 0; }
+	
+	
+.caption				{ position: relative; height: 15px; line-height: 15px; }
+
+	.caption .editPanel		{ z-index: 20; top: -52px !important; }
+	
+	
+.image					{ position: absolute; text-align: center; }
+
+	.image img				{ margin: 0 auto; }
+	
+	
+.text					{ position: absolute; overflow: auto; }
+
+	ul, ol					{ margin: 10px 0; padding-left: 10px; list-style-position: outside; }
+	
+	ol						{ padding-left: 25px; }
+	
+	ul						{ list-style-type: square; }
+	
+		li						{ margin: 0 0 5px 10px; } 
+
+	.text .textHeadline		{ position: relative; margin-bottom: 10px; }
+
+	.text .textContent		{ position: relative; }
+	
+		
+.infoLinksBox			{ position: absolute; overflow: auto; }
+
+	.infoLinksBox .text		{ position: relative; padding-bottom: 10px; width: auto; height: auto; overflow: visible; }
+	
+		.infoLinksBox .text .editPanel{ top: 20px; }
+	
+	.infoLinksBox .infoLinks{ position: relative; margin-top: 5px; border-top: solid 1px #333; }
+	
+	
+.infoEmbed				{ position: absolute; overflow: auto; }
+
+
+.moreInfo				{ background-attachment: fixed; }
+
+	
+.jumpPanel				{ position: absolute; overflow: hidden; }
+
+	.jumpTo					{ position: relative; display: inline; margin: 5px; float: left; overflow: visible; }
+		
+		.screenName				{ display: inline !important; }
+			
+		.jumpToLink				{ display: block; padding: 2px 0; }
+		
+			.jumpToLink span		{ }
+
+
+.contentBox				{ position: relative; margin: 10px; padding: 5px 5px 8px 0; width: auto; height: auto; border: solid 1px #666; background-color: #FFF; }
+
+	.glossaryItem			{ padding-left: 18px; margin-top: 3px; }
+
+	.group, .screen			{ clear: left; padding-left: 10px; height: 22px; }
+	
+	.group					{ margin-bottom: 3px; height: auto !important; height: 22px; }
+	
+		.group img, .screen img	{ float: left; }
+	
+		.group a, .group span, .screen a{ float: left; margin: 3px 0 0 3px; }
+
+
+/* position */
+
+.left					{ left: 0; margin: 0; }
+
+
+.right					{ right: 0; margin: 0; }
+
+
+.top					{ top: 0; margin: 0; }
+
+
+.bottom					{ bottom: 0; margin: 0; }
+
+
+/* 1024x768 sizes */
+
+.fullWidth				{ width: 900px; }
+
+	.fullWidth .editPanel	{ left: 340px; }
+	
+		.fullWidth .caption .editPanel{ left: 410px; }
+		
+
+.imageHalfWidth			{ width: 448px; }
+
+	.imageHalfWidth .editPanel{ left: 114px; }
+	
+		.imageHalfWidth .caption .editPanel{ left: 184px; }
+		
+.moreInfo .imageHalfWidth{ width: 500px; }
+
+	.moreInfo .imageHalfWidth .editPanel{ left: 122px; }
+	
+		.moreInfo .imageHalfWidth .caption .editPanel{ left: 192px; }
+
+.textHalfWidth			{ width: 432px; }
+
+	.textHalfWidth .editPanel{ left: 106px; }
+
+.moreInfo .textHalfWidth{ width: 500px; }
+
+	.moreInfo .textHalfWidth .editPanel{ left: 116px; }
+	
+.infoLinksBoxWidth		{ width: 360px; }
+
+	.infoLinksBoxWidth .editPanel{ left: 90px; }
+	
+.infoEmbedWidth			{ width: 500px; }
+
+.fullHeight				{ height: 530px; }
+
+.halfHeight				{ height: 255px; }
+
+.imageRegHeight			{ height: 351px; }
+
+.imageLargeHeight		{ height: 375px; }
+
+.moreInfo .imageLargeHeight{ height: 415px; }
+
+.textShortHeight		{ height: 135px; }
+
+.minus1JumpRow			{ height: 460px; }
+
+.minus2JumpRow			{ height: 400px; }
+
+.singleJumpRow			{ height: 55px; }
+
+.doubleJumpRow			{ height: 115px; }
+	
+.jumpTo					{ width: 440px; height: 50px; }
+	
+	.jumpTo .editPanel		{ left: 10px; top: -5px; }
+
+	.jumpToLink				{ width: 440px; height: 46px; }
+	
+.narrowJump				{ width: 290px; }
+
+	.narrowJump .jumpToLink	{ width: 290px; }
+
+
+/* 800x600 sizes */
+
+.small .fullWidth				{ width: 745px; }
+
+	.small .fullWidth .editPanel	{ left: 260px; }
+	
+		.small .fullWidth .caption .editPanel{ left: 330px; }
+
+.small .imageHalfWidth			{ width: 370px; }
+
+	.small .imageHalfWidth .editPanel{ left: 74px; }
+	
+		.small .imageHalfWidth .caption .editPanel{ left: 144px; }
+		
+.small .moreInfo .imageHalfWidth{ width: 500px; }
+
+	.small .moreInfo .imageHalfWidth .editPanel{ left: 122px; }
+	
+		.small .moreInfo .imageHalfWidth .caption .editPanel{ left: 192px; }
+
+.small .textHalfWidth			{ width: 365px; }
+
+	.small .textHalfWidth .editPanel{ left: 86px; }
+
+.small .moreInfo .textHalfWidth	{ width: 370px; }
+
+	.small .moreInfo .textHalfWidth .editPanel{ left: 86px; }
+	
+.small .infoLinksBoxWidth		{ width: 345px; }
+
+	.small .infoLinksBoxWidth .editPanel{ left: 70px; }
+	
+.small .infoEmbedWidth			{ width: 370px; }
+
+.small .fullHeight				{ height: 425px; }
+
+.small .halfHeight				{ height: 207px; }
+
+.small .imageRegHeight			{ height: 295px; }
+
+.small .imageLargeHeight		{ height: 320px; }
+
+.small .textShortHeight			{ height: 105px; }
+
+.small .minus1JumpRow			{ height: 375px; }
+
+.small .minus2JumpRow			{ height: 315px; }
+	
+.small .jumpTo					{ width: 362px; }
+
+	.small .jumpToLink				{ width: 362px; }
+	
+	.small .jumpTo .editPanel		{ left: 5px; top: -5px; }
+	
+.small .narrowJump				{ width: 238px; }
+
+	.small .narrowJump .jumpToLink	{ width: 238px; }
+	
+/* begin common assessment structure */
+#assessment			{ height: 530px; width: 900px; }
+#assessment.record	{ height: 400px; }
+/* begin panel layout */
+#panel			{ -moz-border-radius: 10px; -webkit-border-radius: 10px; box-shadow: 2px 2px 6px #999; -moz-box-shadow: 2px 2px 6px #999; -webkit-box-shadow: 2px 2px 6px #999; background-color: #fff; border: 2px solid #999; left: 50%; margin: -100px auto 0 -190px; padding: 10px; position:absolute; text-align: center; top:50%; width:360px; z-index:500; }
+.close-btn		{ background-image: url(close-btn-bg.gif); float: right; height: 17px; width: 17px; }
+.instructions, 
+.feedback		{ clear: right; margin-bottom: 1.5em; }
+#panel .button	{ margin: 0 auto; text-align: center; }
+/* end panel layout */
+
+/* background - for catching 'drag and drop' cancels */
+#bg				{ height: 530px; left: 0; position: absolute; top: 0; width: 900px; }
+
+/* begin image layout */
+.media 					{ position: absolute; text-align: center; }
+/* begin template specific layout */
+#media1.full			{ height: 425px; left: 50px; top: 0px; width: 800px; }
+#media1.large			{ height: 300px; left: 10px; top: 10px; width: 880px; }
+#media1.medium			{ height: 300px; left: 10px; top: 10px; width: 400px; }
+.msaudioimage #media1	{ top: 60px; }
+/* end image layout */
+
+/* begin question/options layout */
+#questionOptions 						{ position: absolute; text-align: left; }
+.question, .option 						{ margin-bottom: 10px; }
+.option a.correct,
+.option a.incorrect,
+.option a.disabled						{ cursor: default; }
+/* begin template specific layout */
+.multiplechoice .option a 				{ background: transparent url(option-bg.gif) no-repeat 0 0; color: inherit; display: block; min-height: 21px; padding-left: 30px; text-decoration: inherit; }
+.multiplechoice .option a.active:hover	{ background-position: 0 -100px; }
+.multiplechoice .option a.selected		{ background-position: 0 -200px; }
+.multiplechoice .option a.correct		{ background-position: 0 -300px; }
+.multiplechoice .option a.incorrect		{ background-position: 0 -400px; }
+.multiplechoice .option a.disabled 		{ background-position: 0 -500px; }
+.mc6optionsimage #questionOptions,
+.mc4optionsimageaudio #questionOptions	{ left: 430px; top: 10px; width: 460px; }
+.mc8options #questionOptions			{ left: 0px; top: 10px; width: 890px; }
+.mc8options .question					{ margin-left: 10px; }
+.mc8options .option 					{ float: left; margin-left: 10px; width: 430px; }
+.mc4audioimage #questionOptions			{ left: 250px; top: 330px; width: 400px; }
+.mc4audioimage .option					{ float: left; margin-right: 10px; }
+.mc4audioimage .option > a				{ float: left; }
+
+.mediaselect #questionOptions 			{ text-align: center; top: 80px; width: 900px; }
+.mediaselect .option 					{ float: left; margin: 0 10px; }
+.mediaselect .option a img 				{ border: 2px solid #FFF; }
+.mediaselect .option a.selected img,
+.mediaselect .option a:hover img 		{ border-color: #333; }
+.mediaselect .option a.correct img	 	{ border-color: #090; }
+.mediaselect .option a.incorrect img 	{ border-color: #F00; }
+.mediaselect .option a.disabled img 	{ border-color: #FFF; opacity: 0.5; }
+.ms4image .option						{ width: 200px; }
+.ms4image .option img					{ margin-bottom: 10px; }
+
+.dragndrop .option .drop				{ background-color: #EEE; border: 1px solid #CCC; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; height: 48px; }
+.dragndrop #dragOptions					{ left: 10px; position: absolute; height: 1px; top: 0;}
+.dragndrop #questionOptions				{ height: 1px; }
+.dd8options #questionOptions			{ left: 470px; top: 0; width: 420px; }
+.dd8options #dragOptions				{ width: 420px; }
+.dd5phrases5false #dragOptions			{ width: 890px; }
+.dd5phrases5false #questionOptions		{ border-top: 1px solid #CCC; left: 10px; padding-top: 15px; top: 125px; width: 880px; }
+.dd5phrases5false #questionOptions .option{ clear: both; height: 50px; }
+.dd5phrases5false #questionOptions .drop{ float: left; margin-right: 10px; width: 166px; }
+.dd8images2false #questionOptions,
+.dd4images4false #questionOptions		{ border-top: 1px solid #CCC; left: 10px; padding-top: 15px; top: 116px; width: 890px; }
+.dd8images2false #questionOptions .option,
+.dd4images4false #questionOptions .option{ float: left; margin: 0 10px 12px; text-align: center; width: 200px; }
+.dd8images2false #questionOptions .drop,
+.dd4images4false #questionOptions .drop	{ height: 42px; margin: 0 auto; width: 166px; }
+
+.dragnsort #questionOptions 			{ padding: 0 25px; text-align: center; top: 0; width: 850px; }
+.dragnsort #questionOptions .option		{ float: left; margin: 0 5px 5px; text-align: center; width: 200px; }
+.dragnsort #questionOptions .option img { border: 2px solid #FFF; }
+.dragnsort #questionOptions .active img { border-color: #333; }
+.dragnsort #questionOptions .correct img{ border-color: #090; }
+.dragnsort #questionOptions .incorrect img{ border-color: #F00; }
+
+.areaselect #questionOptions		{ height: 425px; left: 50px; position: absolute; width: 800px; }
+.areaselect .option					{ height: 24px; position: absolute; width: 26px; }
+.areaselect .option a				{ background: transparent url(option-bg.gif) no-repeat 0 -639px; height: 24px; position: absolute; width: 26px; overflow: visible; }
+.areaselect .option a:hover			{ background-position: 0 -669px; }
+.areaselect .option a.correct		{ background-position: 0 -699px; }
+.areaselect .option a.incorrect		{ background-position: 0 -729px; }
+.areaselect .option.disabled		{ display: none; }
+.areaselect	.target					{ background-color: transparent; position: absolute; }
+.areaselect	.target.show			{ border: #06C 2px solid; }
+.areaselect	.target.active			{ }
+/* end question/options layout */
+	
+/* begin button layout */
+#assessment .button 				{ -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; display: inline; margin: 0 auto; padding: 6px 1px; text-align: center; }
+#assessment .button a 				{ background-color: inherit; background-image: url(assessment_button_bg.png); background-position: left bottom; background-repeat: repeat-x; display: inline; color: inherit; padding: 5px 7px; text-decoration: none; }
+#assessment .button a:hover			{ background-position: left top; }
+#assessment .button.disabled,
+#assessment .button.disabled a,
+#assessment .button.disabled a:hover{ background-color: #CCC; background-position: left bottom; cursor: default; }
+#buttonrow 				{ bottom: 10px; height: 30px; left: 10px; position: absolute; width: 880px; }
+#buttonrow #instructBtn { float: left; }
+#buttonrow #checkBtn 	{ float: right; margin-right: 10px; }
+#buttonrow #showBtn 	{ float: right; }
+.audioControl 					{position:absolute; text-align:center;}
+.audioControl .audio 			{ margin-left: 6px; }
+.multiplechoice .audioControl	{ left: 10px; top: 320px; width: 400px; }
+.mediaselect .audioControl		{ left: 10px; top: 20px; width: 900px; }
+#assessment .button.play a span,
+#assessment .button.pause a span { visibility: hidden; }
+#assessment .button.play a,
+#assessment .button.pause a { background-image: url(assessment_button_bg.png), url(playpause_bg.png); background-position: left bottom, center 5px; background-repeat: repeat-x, no-repeat; }
+#assessment .button.pause a { background-position: left bottom, center -35px; }
+#assessment .button.play a:hover { background-position: left top, center 5px; }
+#assessment .button.pause a:hover { background-position: left top, center -35px; }
+/* end button layout */
+
+#assessment.dragndrop #dragOptions .button		{ display: block; height: 48px; margin-bottom: 10px; padding: 1px; }
+#assessment.dragndrop #dragOptions .button a	{ display: block; height: 48px; line-height: 46px; padding: 0; }
+#assessment.dragndrop #dragOptions .button		{ display: none; } 
+#assessment.dragndrop #dragOptions .button.selected a { background-position: left top; }
+.dd8images2false #dragOptions .button,
+.dd5phrases5false #dragOptions .button			{ float: left; margin-right: 10px; width: 166px; }
+.dd4images4false #dragOptions .button			{ float: left; margin: 0 27px 10px; width: 166px; }
+#assessment.dragndrop.dd8images2false #dragOptions .button,
+#assessment.dragndrop.dd4images4false #dragOptions .button,
+#assessment.dragndrop.dd8images2false #dragOptions .button a,
+#assessment.dragndrop.dd4images4false #dragOptions .button a	{ height: 42px; line-height: 40px;  }
+
+
+#assessment.dragnsort #questionOptions .button		{ display: block; height: 42px; margin-bottom: 10px; padding: 1px; }
+#assessment.dragnsort #questionOptions .button a	{ display: block; height: 42px; line-height: 40px; padding: 0; }
+#assessment.dragnsort #questionOptions .button,
+#assessment.dragnsort #questionOptions .button a	{ text-align: center; width: 200px; }
+#assessment.dragnsort #questionOptions .active .button a	{ background-position: left top; }
+
+
+/* audio and recording
+#audio { visibility: hidden; } */
+#record { background-color: #FFF; margin: 0 auto; text-align: center; width: 200px; }
+
+
+
+/*Narration play control*/
+div.jp-audio
+{
+	position:absolute; top: 10px; right: 15px;
+	width:50px;	
+    filter:alpha(opacity=30); 
+	opacity:0.3;	
+}
+
+div.jp-interface {
+	position:absolute; top: 10px; right: 15px;
+	width:100%;
+}
+
+div.jp-audio div.jp-type-single div.jp-interface {
+	height:50px;
+}
+
+/* @group CONTROLS */
+
+div.jp-interface ul.jp-controls {
+	list-style-type:none;
+	margin:0;
+	padding: 0;
+}
+
+div.jp-audio ul.jp-controls {
+	width: 50px;
+	padding:0px 0px 0px 0px;
+}
+
+div.jp-interface ul.jp-controls a {
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+}
+a.jp-play,
+a.jp-pause {
+	width:50px;
+	height:50px;
+}
+
+a.jp-play {
+	background: url("playbutton.png");
+
+}
+a.jp-play:hover {
+	background: url("playbutton.png");
+}
+a.jp-pause {
+	background: url("");
+	display: none;
+}
+a.jp-pause:hover {
+	background: url("");
+}
+
+div.jp-jplayer audio,
+div.jp-jplayer {
+	position:absolute; top: 10px; right: 15px;
+	width:50px;
+	height:50px;
+	visibility: hidden;
+}
+
+/* Narrator play control @end */
