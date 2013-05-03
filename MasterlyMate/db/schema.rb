@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425191644) do
+ActiveRecord::Schema.define(:version => 20130503121430) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "points"
@@ -60,8 +60,11 @@ ActiveRecord::Schema.define(:version => 20130425191644) do
   create_table "wbts", :force => true do |t|
     t.string   "name"
     t.binary   "file"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "mainFile"
+    t.string   "description"
+    t.integer  "forRank"
   end
 
 end

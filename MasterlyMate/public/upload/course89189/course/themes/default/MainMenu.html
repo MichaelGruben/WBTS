@@ -1,0 +1,149 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<title>ChapterList_800x600</title>
+		<meta content="Microsoft Visual Studio 7.0" name="GENERATOR">
+		<meta content="C#" name="CODE_LANGUAGE">
+		<meta content="JavaScript" name="vs_defaultClientScript">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+		<LINK href='themes/bcgov/glossary_coursemap/glossary_map.css' type="text/css" rel="stylesheet">
+		<script src='utility.js'></script>
+		<script>
+
+
+parent.gblNavDocument = document;
+
+function InitializeMainMenu()
+{
+  parent.gblMainMenuBackButton = new parent.initButton('mainmenu_back_up.gif', 'mainmenu_back_over.gif', 'mainmenu_back_disabled.gif', 'btnBack', parent.goCourseNavigation,'Returns you to the last screen visited','');
+  InitializeLabels();
+  RenderMainMenu(top.getModuleByScreenID(top.getCurrScreen().id).id);
+}
+function InitializeLabels()
+{
+	getObjByName('lblCourseName').innerHTML = top.gblCourse.name;
+}
+function GetViewedTag(oItem, bSelected)
+{
+
+	var bCompleted = true;
+	
+	switch (oItem.type) {
+		case 'module' : bCompleted = oItem.completed;
+						break;
+		case 'screen' : bCompleted = oItem.isCompleted();
+						break;
+	}
+		
+	var sHTML = '<img id="imgVisited_' + oItem.id + '" src="' + top.gblThemeDir + '/{0}.gif" border="0" />';
+	return ( bCompleted ) ? formatString(sHTML,['viewed']) : formatString(sHTML,['spacer']);		
+}
+
+
+function RenderMainMenu(intModuleId)
+{
+	var sInnerHTML = "";
+	var oModules = top.gblModules;
+
+	// build the table
+	sInnerHTML += '<table cellspacing="3" cellpadding="2" border="0" ';
+	sInnerHTML += 'id="dgScreenLinks" style="border-width:0px;width:100%;">';
+                
+	// build the html
+	var intModuleCount = 0;
+	for (var i=0;i<oModules.length;i++)  {    
+		
+	    if (oModules[i].topics != null && oModules[i].topics[0].screens != null && oModules[i].topics[0].screens.length > 0)
+	    {
+			intModuleCount++;
+			
+            sInnerHTML += '<tr>';
+            if (intModuleCount % 2 == 0)
+				sInnerHTML += '	 <td class="text">';
+			else
+				sInnerHTML += '	 <td class="text">';
+            
+            sInnerHTML += '<a href="javascript:goScreen(' + 
+                          oModules[i].topics[0].screens[0].id +')">'+ oModules[i].name + '</a>' + GetViewedTag(oModules[i]) + '</td>';
+            
+            
+            sInnerHTML += '</tr>';		
+        }
+	}
+	sInnerHTML += '</table>';
+	
+	getObjByName('spnContent').innerHTML = sInnerHTML;
+	
+}
+
+function goScreen(intScreenID)
+{
+  parent.goScreenFromMainMenu(intScreenID);
+}
+
+		</script>
+	</HEAD>
+	<body bottomMargin="0" leftMargin="0" topMargin="0" rightMargin="0" background="themes/bcgov/background.gif"
+		onload="InitializeMainMenu()">
+		<form name="ChapterList_800x600" method="post" id="ChapterList_800x600">
+			<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0" background="themes/bcgov/background.gif">
+				<tr>
+					<td height="48" valign="top">
+						<table width="100%" height="65" border="0" cellpadding="0" cellspacing="0" background="themes/bcgov/chapters_top_background.gif">
+							<tr>
+								<td><div align="left"><img src="themes/bcgov/chapters.gif" width="150" height="65"></div>
+								</td>
+								<td width="40">
+									<img src="themes/bcgov/mainmenu_back_up.gif" name="btnBack" border="0">
+								</td>
+								<td width="150"><div align="right"><img src="themes/bcgov/chapters_topright_logo.gif" width="150" height="65"></div>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top"><table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+							<tr>
+								<td height="5" colspan="3"><img src="images/spacer.gif" width="1" height="1"></td>
+							</tr>
+							<tr>
+								<td width="5" height="5"><img src="themes/bcgov/student_topleft.gif" width="5" height="5"></td>
+								<td height="5" background="themes/bcgov/student_topmiddle.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+								<td width="5"><img src="themes/bcgov/student_topright.gif" width="5" height="5"></td>
+							</tr>
+							<tr>
+								<td background="themes/bcgov/student_middleleft.gif">&nbsp;</td>
+								<td background="themes/bcgov/student_middlemiddle.gif"><table width="700" height="420" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="360" rowspan="3" align="left" valign="top"><img src="themes/bcgov/chapters_splash.jpg" width="360" height="270"></td>
+											<td width="20" rowspan="3"><img src="images/spacer.gif" width="1" height="1"></td>
+											<td height="40" colspan="2" valign="bottom">
+												<div class="categories">
+													<span id="lblCourseName" name="lblCourseName"></span>
+													<br>
+													<br>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td valign="top" colspan="2">
+												<span id="spnContent"></span>
+									</table>
+								</td>
+							</tr>
+						</table>
+						&nbsp;
+					</td>
+					<td background="themes/bcgov/student_middleright.gif">&nbsp;</td>
+				</tr>
+				<tr>
+					<td><img src="themes/bcgov/student_bottomleft.gif" width="5" height="5"></td>
+					<td background="themes/bcgov/student_bottommiddle.gif"><img src="images/spacer.gif" width="1" height="1"></td>
+					<td><img src="themes/bcgov/student_bottomright.gif" width="5" height="5"></td>
+				</tr>
+			</table>
+			</td> </tr> </table>
+		</form>
+	</body>
+</HTML>
