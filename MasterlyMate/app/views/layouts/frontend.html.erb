@@ -1,51 +1,70 @@
+<!--
+	Copyright 2013 Michael Gruben, Julian Babics, Benjamin Merkle
+
+This file is part of Masterly Mate.
+
+Masterly Mate is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at
+your option) any later version.
+
+Masterly Mate is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Masterly Mate.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von Masterly Mate.
+
+Masterly Mate ist Freie Software: Sie können es unter den Bedingungen
+der GNU Affero General Public License, wie von der Free Software
+Foundation, Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+Masterly Mate wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN
+ZWECK.
+Siehe die GNU Affero General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU Affero General Public License zusammen
+mit Masterly Mate erhalten haben. Wenn nicht, siehe
+<http://www.gnu.org/licenses/>.
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>MasterlyMate</title>
   <%= stylesheet_link_tag "frontend" %>
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
+  <script src="/assets/application.js?body=1" type="text/javascript"></script>
   <%= javascript_include_tag "frontend" %>
-  <%= csrf_meta_tags %>
+  <link rel ="stylesheet" href="/assets/pepper-grinder/jquery-ui-1.10.2.custom.css" type="text/css" />
+  <%= ensureSecurity %>
 </head>
 <body>
-
 <div id="main">
-
 	<div id="header">
-		<div class="language_switcher">
-			<%= t "page.language.select" %>: 
-			<%= link_to t("page.language.german"), locale_path('de') %> | 
-			<%= link_to t("page.language.english"), locale_path('en') %>
-		</div>
+		<%= render partial: "shared/language_switcher" %>
 		<div align="right" style="margin-top: 50px; margin-right: 5px;">
-			<%= render_breadcrumbs :separator => ' > ' %>
+			<%= render partial: "shared/breadcrumb", locals: { breadcrumbSeparator: "&raquo;" } %>
 		</div>
 	</div>
 	<div id="navigation">
+		<%= render partial: "shared/navigation" %>
 		<%= render partial: "shared/login" %>
 	</div>
 	<div id="content">
-
-		<% if flash[:notice] %>
-			<div class="notice">
-				<%= flash[:notice] %>
-			</div>
-		<% elsif flash[:error] %>
-			<div class="error">
-				<%= flash[:error] %>
-			</div>
-		<% elsif flash[:alert] %>
-			<div class="error">
-				<%= flash[:alert] %>
-			</div>
-		<% end %>
-
+		<%= render partial: "shared/flash_message" %>
 		<%= yield %>
 	</div>
 	<div style="clear: both;"></div>
-
 </div>
-
-<div id="footer">&copy;2013 MasterlyMate</div>
-
+<div id="footer"><%= showCopyright %></div>
 </body>
 </html>
