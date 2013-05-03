@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<content marked="false" checkText="I'm done" showText="Show me" instructionsText="Instructions" titleText="Assessment Question 1" closeText="OK">
+  <instructions>Adding assessments to the end of each topic or module is used to test the learner's understanding before moving on to the next topic/module.</instructions>
+  <question>Add your question here</question>
+  <media>
+    <visual file="" />
+  </media>
+  <answers>
+    <option correct="1" display_order="0">Correct Answer</option>
+    <option correct="0" display_order="1">Incorrect Answer</option>
+    <option correct="0" display_order="2">Incorrect Answer</option>
+  </answers>
+  <correct audio="">Provide feedback to the learner here. This will pop-up when the correct answer has been selected. </correct>
+  <incorrect audio="">Provide feedback to the learner here. This will pop-up when an incorrect answer has been selected. </incorrect>
+  <partial audio="">Provide feedback to the learner here.  This will pop-up when the learner has selected the correct answer along with an incorrect answer. </partial>
+  <show_me audio="">
+  </show_me>
+</content>

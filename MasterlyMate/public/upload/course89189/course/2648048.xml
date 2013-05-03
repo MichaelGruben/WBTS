@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<content marked="false" checkText="I'm done" showText="Show me" instructionsText="Instructions" titleText="Assessment Question 2" closeText="OK">
+  <instructions>Assessments are used to test the learner's understanding of the material presented in the previous screens.</instructions>
+  <answers>
+    <option correct="1" display_order="0" word="Correct Answer">Add your question or statement here</option>
+    <option correct="0" display_order="1" word="Incorrect Answer 1" />
+    <option correct="0" display_order="2" word="Incorrect Answer 2" />
+  </answers>
+  <correct audio="">Add a message here to confirm a correct answer.</correct>
+  <incorrect audio="">Add a message here to reinforce the correct answer.</incorrect>
+  <partial audio="">Add a message here to reinforce the correct answer. </partial>
+  <show_me audio="">
+  </show_me>
+</content>

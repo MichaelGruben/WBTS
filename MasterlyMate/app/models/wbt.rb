@@ -35,5 +35,5 @@
 #########################################################################
 
 class Wbt < ActiveRecord::Base
-  attr_accessible :file, :name
+  attr_accessible :description, :name, :file, :mainFile, :rankFor
 end

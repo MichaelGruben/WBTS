@@ -1,37 +1,37 @@
 /*Copyright 2013 Michael Gruben, Julian Babics, Benjamin Merkle
 
-This file is part of Masterly Mate.
+ This file is part of Masterly Mate.
 
-Masterly Mate is free software: you can redistribute it and/or modify it
-under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation, either version 3 of the License, or (at
-your option) any later version.
+ Masterly Mate is free software: you can redistribute it and/or modify it
+ under the terms of the GNU Affero General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or (at
+ your option) any later version.
 
-Masterly Mate is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
+ Masterly Mate is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU Affero General Public License
-along with Masterly Mate.  If not, see <http://www.gnu.org/licenses/>.
+ You should have received a copy of the GNU Affero General Public License
+ along with Masterly Mate.  If not, see <http://www.gnu.org/licenses/>.
 
-Diese Datei ist Teil von Masterly Mate.
+ Diese Datei ist Teil von Masterly Mate.
 
-Masterly Mate ist Freie Software: Sie können es unter den Bedingungen
-der GNU Affero General Public License, wie von der Free Software
-Foundation, Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
-veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+ Masterly Mate ist Freie Software: Sie können es unter den Bedingungen
+ der GNU Affero General Public License, wie von der Free Software
+ Foundation, Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+ veröffentlichten Version, weiterverbreiten und/oder modifizieren.
 
-Masterly Mate wird in der Hoffnung, dass es nützlich sein wird, aber
-OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
-Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN
-ZWECK.
-Siehe die GNU Affero General Public License für weitere Details.
+ Masterly Mate wird in der Hoffnung, dass es nützlich sein wird, aber
+ OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+ Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN
+ ZWECK.
+ Siehe die GNU Affero General Public License für weitere Details.
 
-Sie sollten eine Kopie der GNU Affero General Public License zusammen
-mit Masterly Mate erhalten haben. Wenn nicht, siehe
-<http://www.gnu.org/licenses/>.
-*/
+ Sie sollten eine Kopie der GNU Affero General Public License zusammen
+ mit Masterly Mate erhalten haben. Wenn nicht, siehe
+ <http://www.gnu.org/licenses/>.
+ */
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -47,28 +47,137 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
  *= require_tree .
  */
 
-body { font-family: 'lucida grande', tahoma, verdana, arial, sans-serif; color: #FFFFFF; text-align: center; word-wrap: break-word; background-image: url('/assets/background.png'); background-repeat: repeat-x; }
-#main { background-color: #F26742; text-align: left; width: 1020px; margin: 0 auto; border: 2px solid #000000; padding: 0; }
-#header { height: 100px; background-image: url('/assets/mm_header.png'); background-repeat: no-repeat; margin: 0; }
-#navigation { font-size: 10pt; float: left; width: 264px; padding: 5px; overflow-x: auto; overflow-y: hidden; }
-#content { border-left: 2px solid #000000; font-size: 12pt; float: right; width: 728px; padding: 5px; min-height: 300px; }
-#footer { color: #613109; text-align: center; padding: 10px 0; margin: 20px 50px; border-top: 1px solid #613109; }
-.language_switcher, .language_switcher a { margin-right: 5px; text-decoration: none; color: #FFFFFF !important; font-weight: bold; text-align: right; }
-.error, .notice { border: 1px solid #000000; color: #000000; font-style: italic; font-size: .8em; padding: 5px; margin: 2px; }
-.error { background-color: #FF0000; }
-.notice { background-color: #00FF00; }
-fieldset { border-color: #000000; }
-fieldset.login { width: 230px; }
-label { color: #613109; }
-legend { font-weight: bold; }
-a { text-decoration: none; font-style: italic; color: #613109; }
-a:hover { color: #000000; }
-input[type="submit"], .button { border: 1px solid #FFFFFF; background-color: #613109; padding: 5px; color: #FFFFFF; cursor: pointer; }
-.validation_hint { color: #333 !important; border: 1px solid #DD3C10; padding-top: 5px; padding-bottom: 5px; color: #FFFFFF; font-size: .8em; background-color: #FFEBE8; }
-li.navigation_entry { list-style-type: none; }
-.mmTable { border: none; border-spacing: 0; font-size: .9em; width: 100%; }
-.mmTable td, .mmTable th { padding: 5px; border-bottom: 1px solid #000000; }
-.mmTable th { text-align: center; border-bottom: 2px solid #FFFFFF; }
-.mmTable tr.odd td { background-color: #EE9A4D; }
-.mmTable tr.even td, .mmTable th { background-color: #A52A2A; }
-h1, h2, h3, h4, h5, h6 { font-family: Georgia, serif; color: #4E443C; font-variant: small-caps; text-transform: none; font-weight: 100; margin-bottom: 0; }
+body {
+	font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	word-wrap: break-word;
+	background-image: url('/assets/background.png');
+	background-repeat: repeat-x;
+}
+#main {
+	background-color: #F26742;
+	text-align: left;
+	width: 1020px;
+	margin: 0 auto;
+	border: 2px solid #000000;
+	padding: 0;
+}
+#header {
+	height: 100px;
+	background-image: url('/assets/mm_header.png');
+	background-repeat: no-repeat;
+	margin: 0;
+}
+#navigation {
+	font-size: 10pt;
+	float: left;
+	width: 264px;
+	padding: 5px;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+#content {
+	border-left: 2px solid #000000;
+	font-size: 12pt;
+	float: right;
+	width: 728px;
+	padding: 5px;
+	min-height: 300px;
+}
+#footer {
+	color: #613109;
+	text-align: center;
+	padding: 10px 0;
+	margin: 20px 50px;
+	border-top: 1px solid #613109;
+}
+.language_switcher, .language_switcher a {
+	margin-right: 5px;
+	text-decoration: none;
+	color: #FFFFFF !important;
+	font-weight: bold;
+	text-align: right;
+}
+.error, .notice {
+	border: 1px solid #000000;
+	color: #000000;
+	font-style: italic;
+	font-size: .8em;
+	padding: 5px;
+	margin: 2px;
+}
+.error {
+	background-color: #FF0000;
+}
+.notice {
+	background-color: #00FF00;
+}
+fieldset {
+	border-color: #000000;
+}
+fieldset.login {
+	width: 230px;
+}
+label {
+	color: #613109;
+}
+legend {
+	font-weight: bold;
+}
+a {
+	text-decoration: none;
+	font-style: italic;
+	color: #613109;
+}
+a:hover {
+	color: #000000;
+}
+input[type="submit"], .button {
+	border: 1px solid #FFFFFF;
+	background-color: #613109;
+	padding: 5px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.validation_hint {
+	color: #333 !important;
+	border: 1px solid #DD3C10;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #FFFFFF;
+	font-size: .8em;
+	background-color: #FFEBE8;
+}
+li.navigation_entry {
+	list-style-type: none;
+}
+.mmTable {
+	border: none;
+	border-spacing: 0;
+	font-size: .9em;
+	width: 100%;
+	margin: 5px 0px;
+}
+.mmTable td, .mmTable th {
+	padding: 5px;
+	border-bottom: 1px solid #000000;
+}
+.mmTable th {
+	text-align: center;
+	border-bottom: 2px solid #FFFFFF;
+}
+.mmTable tr.odd td {
+	background-color: #EE9A4D;
+}
+.mmTable tr.even td, .mmTable th {
+	background-color: #A52A2A;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: Georgia, serif;
+	color: #4E443C;
+	font-variant: small-caps;
+	text-transform: none;
+	font-weight: 100;
+	margin-bottom: 0;
+}
