@@ -1,0 +1,24 @@
+Fri, 03 May 2013 13:04:37 +0200
+doc/README_FOR_APP	Mon, 18 Mar 2013 13:01:28 +0100
+app/controllers/application_controller.rb	Thu, 02 May 2013 17:05:25 +0200
+app/controllers/backend_controller.rb	Thu, 02 May 2013 17:05:25 +0200
+app/controllers/courses_controller.rb	Fri, 03 May 2013 12:48:43 +0200
+app/controllers/frontend_controller.rb	Thu, 02 May 2013 17:05:25 +0200
+app/controllers/sessions_controller.rb	Thu, 02 May 2013 17:05:25 +0200
+app/controllers/testobjects_controller.rb	Thu, 02 May 2013 17:05:25 +0200
+app/controllers/users_controller.rb	Thu, 02 May 2013 17:05:25 +0200
+app/helpers/application_helper.rb	Thu, 02 May 2013 17:05:25 +0200
+app/helpers/course_helper.rb	Thu, 02 May 2013 17:05:25 +0200
+app/helpers/courses_helper.rb	Thu, 02 May 2013 17:05:25 +0200
+app/helpers/sessions_helper.rb	Thu, 02 May 2013 17:05:25 +0200
+app/helpers/testobjects_helper.rb	Thu, 02 May 2013 17:05:25 +0200
+app/helpers/users_helper.rb	Fri, 03 May 2013 13:04:32 +0200
+app/models/assessment.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/course.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/group.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/location.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/rank.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/testobject.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/topic.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/user.rb	Thu, 02 May 2013 17:05:25 +0200
+app/models/wbt.rb	Thu, 02 May 2013 17:05:25 +0200
