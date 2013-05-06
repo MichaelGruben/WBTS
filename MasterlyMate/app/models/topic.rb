@@ -35,12 +35,13 @@
 #########################################################################
 
 class Topic < ActiveRecord::Base
-  attr_accessible :name, :childTopics
-  
+  attr_accessible :name, :parent_name
+=begin    
   def initialize(name)
     @name = name
     childTopics = Array.new(0)
   end
+  
  #Methods 
   def addTopic(topic)
     childTopics[childTopics.length] = topic
@@ -49,24 +50,23 @@ class Topic < ActiveRecord::Base
   def searchTopicByName(nameOfSearchedTopic)
     i = 0
     while i < childTopics.length do
-      if childTopics[i].name == nameOfSearchedTopic do
+      if childTopics[i].name == nameOfSearchedTopic
         return topic
       end
       i += 1
     end
     return -1
-  end
-  
+  end  
+ 
   def deleteTopic(nameDeleteTopic)
     i = 0
     while i < childTopics.length do
-      if childTopics[i].name == nameDeleteTopic do
+      if childTopics[i].name == nameDeleteTopic
         j = 0
         while j < i do
           tempArray1[j] = childTopics[j]
           j += 1
         end
-        
         j = childTopics.length - 1
         while j > i do
           tempArray2[j] = childTopics[j]
@@ -74,11 +74,12 @@ class Topic < ActiveRecord::Base
         end
         childTopics = tempArray1 + tempArray2
       end
+        
+      end
     end
-  end
-  
+           
   def getAllTopics()
     return childTopics
   end
-  
+=end      
 end
