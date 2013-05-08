@@ -53,7 +53,10 @@ module ApplicationHelper
   end
   
   def showCopyright()
-    "&copy;#{Time.now.year} MasterlyMate".html_safe
+    "&copy;2013 MasterlyMate".html_safe+
+    " | ".html_safe+
+    "<a href=\"https://github.com/dasBKB/WBTS\">Sourcecode</a> | ".html_safe+
+    "<a href=\"./doc/app/\">API-Documentation</a>".html_safe
   end
   
 end

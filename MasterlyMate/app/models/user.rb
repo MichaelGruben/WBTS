@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   end
   
   def group?(group)
-    return !!self.groups.find_by_name(group)
+    return !!self.groups.find_by_name(group.to_s.camelize)
   end
   
 end
