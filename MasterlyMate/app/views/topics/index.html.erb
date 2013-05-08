@@ -39,16 +39,17 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <table class="mmTable">
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
+    <th>&Uuml;bergeordnetes Topic</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @topic.each do |topic| %>
+<% @topics.each do |topic| %>
   <tr>
     <td><%= topic.name %></td>
-    <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= topic.parent_name %></td>
+	<td><%= link_to content_tag(:span, "", class: "ui-icon ui-icon-wrench", title: "Topic bearbeiten"), edit_topic_path(topic) %></td>
+    <td><%= link_to content_tag(:span, "", class: "ui-icon ui-icon-trash", title: "Destroy"), topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

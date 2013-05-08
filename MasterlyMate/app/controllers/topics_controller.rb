@@ -1,19 +1,14 @@
 class TopicsController < ApplicationController
-  
-    def start
-  @topic = Topic.find(params[:id])
-  @site = "/upload/"+@topic.file+"/"+@topic.mainFile
-  #redirect_to @site
-  end
 
+  layout "frontend"
   # GET /wbts
   # GET /wbts.json
   def index
-    @topic = Wbt.all
+    @topics = Topic.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @wbts }
+      format.json { render json: @topics }
     end
   end
 
@@ -47,12 +42,7 @@ class TopicsController < ApplicationController
   # POST /wbts
   # POST /wbts.json
   def create
-    @topic = Topic.new(params[:wbt])
-    
-    upload
-    #if(!upload)
-    #  redirect_to new_wbt_path, notice: "Kein valides SCORM-File"
-    #else
+    @topic = Topic.new(params[:topic])
     
     respond_to do |format|
       if @topic.save

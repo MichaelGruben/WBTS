@@ -34,14 +34,15 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<div><h1>mein Topic</h1>
-	
-</div>
-
-<div>
-<iframe src="http://localhost:3000/<%= @site %>" width="1024px" height="768px" frameborder = 0 name="topicframe">
-    <p>Placeholder text; only shows up if the page DOESN'T render!</p>
-</iframe>
-<%= javascript_tag "pipwerks.SCORM.init()"%>
-<%= button_to_function "einKnopf", "alert(pipwerks.SCORM.get('cmi.success_status'))" %>
-</div>
+<%= form_for(@topic) do |f| %>
+  <%= validateFieldsOf @topic %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br />
+    <%= f.label :parent_name %><br />
+    <%= f.text_field :parent_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
