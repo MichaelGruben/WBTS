@@ -34,19 +34,18 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<%= form_for(@group) do |f| %>
+<p id="notice"><%= notice %></p>
 
-  <%= validateFieldsOf @group %>
+<p>
+  <b>Name:</b>
+  <%= @topic.name %>
+</p>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field t(:name), readonly: writeProtected, disabled: writeProtected %>
-  </div>
-  
-  <% if !writeProtected %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %>
-  
-<% end %>
+<p>
+  <b>&Uuml;bergeordnetetes Thema:</b>
+  <%= @topic.parent_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

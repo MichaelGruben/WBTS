@@ -103,12 +103,15 @@ SimpleNavigation::Configuration.run do |navigation|
       if can? :read, Wbt
         primary.item :wbts, "WBTS", wbts_path, :class => "navigation_entry"
       end
-      primary.item :topics, "Topics", topics_path, :class => "navigation_entry"
+      if can? :read, Topic
+        primary.item :topics, "Topics", topics_path, :class => "navigation_entry"
+      end
       if can? :read, current_user
         primary.item :users, current_user.username, "/#{params[:locale]}/users/#{current_user.id}/", :class => "navigation_entry"
       end
     else
       # add here navigation list for guests
+      
     end
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.

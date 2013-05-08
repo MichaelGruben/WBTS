@@ -12,7 +12,7 @@ class TopicTest < ActiveSupport::TestCase
     topic.getAllTopics().each do
       i += 1
     end
-    if i == 4 do
+    if i == 4
     assert true
     end
   end
@@ -20,7 +20,7 @@ class TopicTest < ActiveSupport::TestCase
   
   test "Search Topics" do
     testTopic = topic.searchTopicByName("TopicNr2")
-    if testTopic.getNameOfTopic() == "TopicNr2" do
+    if testTopic.getNameOfTopic() == "TopicNr2"
      assert true
     end
   end
@@ -28,7 +28,7 @@ class TopicTest < ActiveSupport::TestCase
   test "Delete Topics" do
     topic.deleteTopic("TopicNr3")
     test = topic.search("TopicNr3")
-    if test == -1 do
+    if test == -1
       assert true
     end
   end

@@ -38,6 +38,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+ ranks:
+  Novice: "Novice"
+  Competence: "Competence"
+  Proficiency: "Proficiency"
+  Expertise: "Expertise"
+  Mastery: "Mastery"
  page:
   language:
    german: "German"

@@ -34,4 +34,26 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
+<h1>Listing topics</h1>
 
+<table class="mmTable">
+  <tr>
+    <th>Name</th>
+    <th>&Uuml;bergeordnetes Topic</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @topics.each do |topic| %>
+  <tr>
+    <td><%= topic.name %></td>
+    <td><%= topic.parent_name %></td>
+	<td><%= link_to content_tag(:span, "", class: "ui-icon ui-icon-wrench", title: "Topic bearbeiten"), edit_topic_path(topic) %></td>
+    <td><%= link_to content_tag(:span, "", class: "ui-icon ui-icon-trash", title: "Destroy"), topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to content_tag(:span, "New topic", class:"button"), new_topic_path %>

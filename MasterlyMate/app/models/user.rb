@@ -37,6 +37,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_and_belongs_to_many :groups
+  has_and_belongs_to_many :ranks
   belongs_to :location
   attr_accessible :birthdate, :email, :firstName, :lastName, :password, :password_confirmation, :username, :sex
   validates :username, :email, presence: true
@@ -48,7 +49,7 @@ class User < ActiveRecord::Base
   end
   
   def group?(group)
-    return !!self.groups.find_by_name(group.to_s.camelize)
+    return !!self.groups.find_by_name(group)
   end
   
 end

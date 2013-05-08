@@ -34,19 +34,8 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<%= form_for(@group) do |f| %>
+<h1>New topic</h1>
 
-  <%= validateFieldsOf @group %>
+<%= render partial: 'form' %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field t(:name), readonly: writeProtected, disabled: writeProtected %>
-  </div>
-  
-  <% if !writeProtected %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %>
-  
-<% end %>
+<%= link_to 'Back', topics_path %>
