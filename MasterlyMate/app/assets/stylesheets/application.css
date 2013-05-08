@@ -117,7 +117,8 @@ fieldset {
 	border-color: #000000;
 }
 fieldset.login {
-	width: 230px;
+	padding: 2px;
+	margin-top: 30px;
 }
 label {
 	color: #613109;
@@ -149,19 +150,27 @@ input[type="submit"], .button {
 	font-size: .8em;
 	background-color: #FFEBE8;
 }
-li.navigation_entry {
-	list-style-type: none;
+.navigation_entry {
+	display: block;
+	margin: 2px 0;
+	padding: 2px 5px;
+	background-color: #4E443C;
+	color: #FFEBE8 !important;
+	text-decoration: none;
+	font-style: normal;
+}
+.navigation_entry:hover {
+	background-color: #DD3C10;
 }
 .mmTable {
 	border: none;
 	border-spacing: 0;
-	font-size: .9em;
 	width: 100%;
-	margin: 5px 0px;
 }
 .mmTable td, .mmTable th {
-	padding: 5px;
+	padding: 5px 1px;
 	border-bottom: 1px solid #000000;
+	font-size: .7em;
 }
 .mmTable th {
 	text-align: center;
@@ -179,5 +188,5 @@ h1, h2, h3, h4, h5, h6 {
 	font-variant: small-caps;
 	text-transform: none;
 	font-weight: 100;
-	margin-bottom: 0;
+	margin-bottom: 20px;
 }

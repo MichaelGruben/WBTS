@@ -46,6 +46,8 @@ de:
   breadcrumb:
    start: "Willkommen"
    registration: "Registrierung"
+  access:
+   denied: "Du bist nicht dazu berechtigt auf den Inhalt dieser Seite zuzugreifen."
  login:
   notRegistered: "Noch nicht registriert?"
   submit: "anmelden"

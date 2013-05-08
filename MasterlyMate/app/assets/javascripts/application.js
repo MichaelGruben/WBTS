@@ -51,11 +51,11 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 
 $(function()
 {
+	$(".lorem").lorem({ type: 'paragraphs',amount:'4',ptags:true}); 
+	
 	initMasterlyMateTables();
 	initLoginModule();
 	initLanguageSwitcherModule();
-	
-	$(".lorem").lorem({ type: 'paragraphs',amount:'4',ptags:true}); 
 });
 
 function initLoginModule()
@@ -140,6 +140,7 @@ function initMasterlyMateTables()
 	$(".mmTable tr:even").addClass('even');
 }
 
+// only for dummy text: Lorem Ipsum
 (function($) {
 	  $.fn.lorem = function(options) {
 	  	$.fn.lorem.defaults = {

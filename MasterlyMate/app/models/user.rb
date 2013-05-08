@@ -36,7 +36,8 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  
+  has_and_belongs_to_many :groups
+  belongs_to :location
   attr_accessible :birthdate, :email, :firstName, :lastName, :password, :password_confirmation, :username, :sex
   validates :username, :email, presence: true
   validates :username, uniqueness: { case_sensitive: false }
@@ -44,6 +45,10 @@ class User < ActiveRecord::Base
   
   def self.find_by_username_none_case_sensitive(username)
     where("lower(username) = ?", username.downcase).first
+  end
+  
+  def group?(group)
+    return !!self.groups.find_by_name(group.to_s.camelize)
   end
   
 end

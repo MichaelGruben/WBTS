@@ -51,9 +51,15 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 			</table>
 			<%= submit_tag t("login.submit") %>
 		<% end %>
-		<p>
-			<%= link_to t("login.notRegistered"), new_user_path %>
-		</p>
+		<% if !defined? withoutRegisterLink
+				withoutRegisterLink = false
+		   end
+		%>
+		<% if !withoutRegisterLink %>
+			<p>
+				<%= link_to t("login.notRegistered"), new_user_path %>
+			</p>
+		<% end %>
 	</fieldset>
 
 <% else %>

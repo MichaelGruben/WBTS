@@ -41,3 +41,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Group.create([ {name: "Registered"}, {name: "Tutor"}, {name: "Administrator"} ])
+# create super user with pw 'admin'
+user = User.new
+user.username = "admin"
+user.password_digest = "$2a$10$BWDw07rMBsKC/jDW1Sr1X.U8taj8k.E1h0ypMVm7yPYEdGMglveoe"
+user.email = "admin@masterlymate.com"
+user.groups << Group.find_by_name("Administrator")
+user.save
