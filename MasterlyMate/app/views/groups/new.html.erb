@@ -34,37 +34,4 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<!DOCTYPE html>
-<html>
-<head>
-  <title>MasterlyMate</title>
-  <%= stylesheet_link_tag "frontend" %>
-  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
-  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
-  <script src="/assets/jquery-ui.js?body=1" type="text/javascript"></script>
-  <script src="/assets/application.js?body=1" type="text/javascript"></script>
-  <%= javascript_include_tag "frontend" %>
-  <link rel ="stylesheet" href="/assets/pepper-grinder/jquery-ui-1.10.2.custom.css" type="text/css" />
-  <%= ensureSecurity %>
-</head>
-<body>
-<div id="main">
-	<div id="header">
-		<%= render partial: "shared/language_switcher" %>
-		<div align="right" style="margin-top: 50px; margin-right: 5px;">
-			<%= render partial: "shared/breadcrumb", locals: { breadcrumbSeparator: "&raquo;" } %>
-		</div>
-	</div>
-	<div id="navigation">
-		<%= render partial: "shared/navigation" %>
-		<%= render partial: "shared/login" %>
-	</div>
-	<div id="content">
-		<%= render partial: "shared/flash_message" %>
-		<%= yield %>
-	</div>
-	<div style="clear: both;"></div>
-</div>
-<div id="footer"><%= showCopyright %></div>
-</body>
-</html>
+

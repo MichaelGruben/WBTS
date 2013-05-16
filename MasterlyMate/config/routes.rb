@@ -58,8 +58,8 @@ MasterlyMate::Application.routes.draw do
   match "/:locale/logout" => "sessions#destroy", as: "logout"
   match "/:locale/wbts/:id" => "wbts#start"
   match "/:locale/upload/:file/:mainFile" => redirect("/upload/%{file}/%{mainFile}")
+  match "/:locale/topics" => "topics#index"
   match "/:locale/" => "frontend#index", as: "root"
-  match "/doc/app/" => redirect("/doc/app/index.html"), :via => [:GET]
   
   
   # The priority is based upon order of creation:
