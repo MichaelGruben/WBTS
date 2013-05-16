@@ -36,8 +36,24 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  layout "frontend"
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    accessDenied
+  end
   
   before_filter :set_locale
+  
+  def current_ability
+    user = -1
+    begin
+      user = User.find(session[:user_id])
+    rescue
+      user = User.new
+    end
+    
+    @current_ability ||= Ability.new(user)
+  end
   
   private
   def set_locale
@@ -59,5 +75,14 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :locale_path
+  
+  def accessDenied()
+    flash[:error] = t("page.access.denied")
+      begin
+        redirect_to :back
+      rescue ActionController::RedirectBackError
+        redirect_to root_path
+    end
+  end
   
 end

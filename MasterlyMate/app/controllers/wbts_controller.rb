@@ -35,8 +35,8 @@
 #########################################################################
 
 class WbtsController < ApplicationController
-  
-  layout "frontend", except:[:start]
+  layout "frontend", except: [:start]
+  load_and_authorize_resource
   
   def start
   @wbt = Wbt.find(params[:id])

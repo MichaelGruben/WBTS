@@ -1,0 +1,21 @@
+<h1>Gruppen</h1>
+
+<table class="mmTable">
+
+<tr>
+	<th><%= t("activerecord.attributes.group.name") %></th>
+	<th colspan="3"></th>
+</tr>
+
+<% @groups.each do |group| %>
+	<tr>
+		<td><%= group.name %></td>
+		<td><%= link_to content_tag(:span, "", class: "ui-icon ui-icon-folder-open", title: "Gruppe anzeigen"), group %></td>
+		<td><%= link_to content_tag(:span, "", class: "ui-icon ui-icon-wrench", title: "Gruppe bearbeiten"), edit_group_path(group) %></td>
+		<td>
+			<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-trash", title: "Gruppe entfernen"), group, method: :delete, data: { confirm: t("destroy.ensuring") } %>
+		</td>
+	</tr>
+<% end %>
+
+</table>

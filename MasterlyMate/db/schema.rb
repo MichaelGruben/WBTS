@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130503121430) do
+ActiveRecord::Schema.define(:version => 20130508113235) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "points"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(:version => 20130503121430) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "groups_users", :id => false, :force => true do |t|
+    t.integer "group_id"
+    t.integer "user_id"
   end
 
   create_table "locations", :force => true do |t|
@@ -39,10 +44,17 @@ ActiveRecord::Schema.define(:version => 20130503121430) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "ranks_users", :id => false, :force => true do |t|
+    t.integer "rank_id"
+    t.integer "user_id"
+    t.integer "topics_id"
+  end
+
   create_table "topics", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "parent_name"
   end
 
   create_table "users", :force => true do |t|
@@ -64,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130503121430) do
     t.datetime "updated_at",  :null => false
     t.string   "mainFile"
     t.string   "description"
+    t.integer  "topic"
     t.integer  "forRank"
   end
 

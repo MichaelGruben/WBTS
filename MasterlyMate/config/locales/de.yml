@@ -38,6 +38,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 de:
+ ranks:
+  Novice: "Neuling"
+  Competence: "Erfahrener"
+  Proficiency: "Professioneller"
+  Expertise: "Experte"
+  Mastery: "Meister"
  page:
   language:
    german: "Deutsch"
@@ -46,6 +52,8 @@ de:
   breadcrumb:
    start: "Willkommen"
    registration: "Registrierung"
+  access:
+   denied: "Du bist nicht dazu berechtigt auf den Inhalt dieser Seite zuzugreifen."
  login:
   notRegistered: "Noch nicht registriert?"
   submit: "anmelden"

@@ -93,8 +93,25 @@ SimpleNavigation::Configuration.run do |navigation|
     #  sub_nav.item :key_2_1, 'name', url, options
     #end
     
-    primary.item :users, "Benutzer", users_path, :class => "navigation_entry" do |sub_nav|
-      sub_nav.item :users, "Benutzer", users_path, :class => "navigation_entry"
+    if signed_in?
+      if can? :read, User
+        primary.item :users, "Benutzer", users_path, :class => "navigation_entry"
+      end
+      if can? :read, Group
+        primary.item :groups, "Gruppen", groups_path, :class => "navigation_entry"
+      end
+      if can? :read, Wbt
+        primary.item :wbts, "WBTS", wbts_path, :class => "navigation_entry"
+      end
+      if can? :read, Topic
+        primary.item :topics, "Topics", topics_path, :class => "navigation_entry"
+      end
+      if can? :read, current_user
+        primary.item :users, current_user.username, "/#{params[:locale]}/users/#{current_user.id}/", :class => "navigation_entry"
+      end
+    else
+      # add here navigation list for guests
+      
     end
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.

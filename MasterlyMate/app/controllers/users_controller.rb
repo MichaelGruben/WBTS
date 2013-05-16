@@ -35,7 +35,7 @@
 #########################################################################
 
 class UsersController < ApplicationController
-  layout "frontend"
+  load_and_authorize_resource except: [:new, :create]
   
   def index
     #redirect_to new_user_path
@@ -58,6 +58,9 @@ class UsersController < ApplicationController
   def create
     initBreadcrumb
     @user = User.new(params[:user])
+    defaultGroup = Group.where("name = 'Registered'").first
+    defaultGroup.users << @user
+    defaultGroup.save
     if @user.save
       redirect_to root_path, notice: t("register.successful")
     else
@@ -83,7 +86,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: t("update.successful") }
+        format.html { redirect_to "/#{params[:locale]}/users/#{@user.id}/", notice: t("update.successful") }
         format.json { head :no_content }
       else
         format.html { render action: "edit", error: t("update.failed") }
@@ -97,11 +100,11 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.destroy
-        format.html { redirect_to flights_url, notice: "#{t(activerecord.models.user)}#{t(destroy.successful)}" }
+        format.html { redirect_to "/#{params[:locale]}/users/#{@user.id}/", notice: "#{t(activerecord.models.user)}#{t(destroy.successful)}" }
         format.json { head :no_content }
       else
-        format.html { redirect_to flights_url, error: "#{t(activerecord.models.user)}#{t(destroy.failed)}" }
-        format.json { head :no_content }
+        format.html { render action: "destroy", error: "#{t(activerecord.models.user)}#{t(destroy.failed)}" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end

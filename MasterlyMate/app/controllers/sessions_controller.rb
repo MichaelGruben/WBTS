@@ -47,11 +47,6 @@ class SessionsController < ApplicationController
     else
       flash[:error] = t("login.failed")
       redirect_to "#{root_path}?failed=1"
-      #if controller.send(:_layout).identifier.split('/').last.split('.').first == "backend"
-      #  redirect_to admin_path
-      #else
-      #  redirect_to root_path
-      #end
     end 
   end
   
