@@ -34,9 +34,9 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<h1>Editing topic</h1>
+<fieldset>
+	<legend><%= t("topic.manage")%></legend>
+	<%= render partial: "form", locals: { submitButtonLabel: t("topic.update") } %>
+</fieldset>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', topic_path %>
+<%= render partial: "subtopicsAndWbts", locals: { topic: @topic } %>

@@ -34,4 +34,5 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<%= render partial: "form", locals: { writeProtected: true } %>
+<%= render partial: "shared/resourceHeader", locals: { modelInstance: @group, headerValue: @group.name, editPath: edit_group_path(@group) } %>
+<%= render partial: "shared/form", locals: { writeProtected: true, modelInstance: @group, modelAttributes: [:name] } %>

@@ -38,12 +38,61 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
- ranks:
-  Novice: "Novice"
-  Competence: "Competence"
-  Proficiency: "Proficiency"
-  Expertise: "Expertise"
-  Mastery: "Mastery"
+ record:
+  update:
+   cancel: "cancel"
+  title:
+   destroy: "delete"
+   update: "edit"
+   show: "details"
+   start: "start"
+ review: "Review"
+ exam:
+  succeeded: "Exam succeeded?"
+ profile:
+  manage: "Manage Profile"
+  update: "update profile"
+  contactDetails: "Contactdetails"
+  statistic:
+   title: "Statistic"
+   wholePoints: "Total Score"
+   averageRank: "Average Rank"
+   of: "of"
+   points: "Points"
+ wbt:
+  manage: "Manage WBT"
+  update: "update WBT"
+  add: "add WBT"
+  new: "New WBT"
+  assignedTopics: "Assigned Topics"
+ topic:
+  manage: "Manage Topic"
+  update: "update topic"
+  add: "add topic"
+  new: "New Topic"
+  noWbts: "No WBTs are assigned to this topic."
+  addWbt: "Assign a WBT to this topic?"
+  noSubtopics: "No subtopics are assigned to this topic."
+  addSubtopic: "Assign a subtopic to this topic?"
+ rank:
+  novice: "Novice"
+  competence: "Competence"
+  proficiency: "Proficiency"
+  expertise: "Expertise"
+  mastery: "Mastery"
+  rank:
+   novice: "Neuling"
+   competence: "Erfahrener"
+   proficiency: "Professioneller"
+   expertise: "Experte"
+   mastery: "Meister"
+ difficulty:
+  easy: "Easy"
+  medium: "Medium"
+  difficult: "Difficult"
+ group:
+  manage: "Manage Group"
+  update: "update group"
  page:
   language:
    german: "German"
@@ -54,6 +103,10 @@ en:
    registration: "Registration"
   access:
    denied: "You are not allowed to view this content."
+  documentation:
+   url: "API-Documentation"
+  sourcecode:
+   url: "Sourcecode"
  login:
   notRegistered: "not registered?"
   submit: "login"
@@ -66,6 +119,7 @@ en:
   fieldsetLegend: "Registration"
   successful: "You have been successfully registered"
   submit: "register"
+  failed: "Error occurred during registration. Please try again."
  update:
   successful: "Change successful"
   failed: "Change failed"
@@ -73,10 +127,24 @@ en:
   successful: " successfully removed"
   failed: " could not be removed"
   ensuring: "Do you really want to remove the entry?"
+ create:
+  successful: " successfully created"
+  failed: " could not be created"
  activerecord:
   models:
    user: "User"
    userPlural: "Users"
+   group: "Group"
+   groupPlural: "Groups"
+   wbt: "WBT"
+   wbtPlural: "WBTs"
+   topic: "Topic"
+   topicPlural: "Topics"
+   subTopic: "Subtopic"
+   subTopicPlural: "Subtopics"
+   rank: "Rank"
+   exam: "Exam"
+   examPlural: "Exams"
   attributes:
    user:
     firstName: "Firstname"
@@ -85,7 +153,29 @@ en:
     email: "E-Mail"
     username: "Username"
     sex: "Sex"
+    zipCode: "Zipcode"
+    city: "City"
+    state: "State"
+    gender:
+     male: "Male"
+     female: "Female"
     password: "Password"
     password_digest: "Password"
     password_confirmation: "Password confirmation"
     password_digest_confirmation: "Password confirmation"
+   wbt:
+    description: "Description"
+    name: "Name"
+    file: "WBT file"
+    mainFile: "Mainentry"
+    topics: "Topics"
+    rank: "Required Rank"
+    difficulty: "Difficulty"
+   topic:
+    name: "Name"
+    description: "Description"
+    topic_id: "Parent topic"
+    subTopicCount: "Subtopic count"
+    wbtCount: "WBT count"
+   assessment:
+    examCount: "Exam count"

@@ -35,14 +35,49 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 -->
 
 <%= form_for(@topic) do |f| %>
-  <%= validateFieldsOf @topic %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %><br />
-    <%= f.label :parent_name %><br />
-    <%= f.text_field :parent_name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= validateFieldsOf(@topic) %>
+  <% writeProtected ||= false %>
+  
+  <table cellspacing="0" cellpadding="2" border="0">
+  	<tr>
+  		<td>
+  			<%= f.label :name %>
+  		</td>
+  		<td>
+  			<%= f.text_field :name, readonly: writeProtected, disabled: writeProtected %>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td valign="top">
+  			<%= f.label :description %>
+  		</td>
+  		<td>
+  			<%= f.text_area :description, cols: 60, rows: 7, readonly: writeProtected, disabled: writeProtected %>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td>
+  			<%= f.label :topic_id %>
+  		</td>
+  		<td>
+  			<% unless @topic.id.nil? %>
+  				<%= f.collection_select :topic_id, Topic.where("id != ?", @topic.id).order("name"), :id, :name, prompt: true, readonly: writeProtected, disabled: writeProtected %>
+  			<% else %>
+  				<%= f.collection_select :topic_id, Topic.order("name").all, :id, :name, prompt: true, readonly: writeProtected, disabled: writeProtected %>
+  			<% end %>
+  		</td>
+  	</tr>
+  </table>
+  
+  <% if !writeProtected %>
+  	<br />
+  	<% if defined?(submitButtonLabel) %>
+    	<%= f.submit submitButtonLabel %>
+    <% else %>
+    	<%= f.submit %>
+    <% end %>
+    <%= link_to content_tag(:span, t("record.update.cancel"), class: "button"), @topic %>
+  <% end %>
+  
 <% end %>

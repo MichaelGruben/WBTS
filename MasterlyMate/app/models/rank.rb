@@ -34,7 +34,20 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This class represents one rank with the attribute name.
+# Also this class contains many assessments and many wbt instances.
+# The name of this rank shall be unique.
+# According to the Dreyfus model, this class provides the ranks novice, competence, proficiency, expertise and mastery.
+# It derived from the base class ActiveRecord::Base.
+# Therefore an instance of this class provides all CRUD (create, read, update and delete) operations.
 class Rank < ActiveRecord::Base
-  has_and_belongs_to_many :users
+  has_many :assessments
+  has_many :wbts
   attr_accessible :name, uniqueness: true
+  
+  # This method will return the translated name of this rank
+  def translated_name
+    I18n.t(name, :scope => "rank")
+  end
+  
 end

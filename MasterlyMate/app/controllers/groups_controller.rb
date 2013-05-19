@@ -34,10 +34,19 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This controller provides actions to the group model like updating or displaying a group.
+# In the current version of Masterly Mate there are only two available groups called
+# Administrator and Registered. All actions can't be accessed by a guest user.
+# All used breadcrumbs will be initialized in each action.
 class GroupsController < ApplicationController
   load_and_authorize_resource
   
+  # This action will load all available groups.
+  # The loaded groups will then be rendered back to the requestor as html and json format.
+  # This action 
   def index
+    add_breadcrumb I18n.t("page.breadcrumb.start"), :root_path
+    add_breadcrumb I18n.t("activerecord.models.groupPlural"), :groups_path
     @groups = Group.all
     respond_to do |format|
       format.html # index.html.erb
@@ -45,27 +54,14 @@ class GroupsController < ApplicationController
     end
   end
   
-  def new
-    initBreadcrumb
-    @group = Group.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @group }
-    end
-  end
-  
-  def create
-    initBreadcrumb
-    @group = Group.new(params[:group])
-    if @group.save
-      redirect_to :back
-    else
-      render "new"
-    end
-  end
-  
+  # The specified group will be loaded by this action.
+  # It will also render the loaded group together with the corresponding view as
+  # html and json format back to the requestor.
   def show
     @group = Group.find(params[:id])
+    add_breadcrumb I18n.t("page.breadcrumb.start"), :root_path
+    add_breadcrumb I18n.t("activerecord.models.groupPlural"), :groups_path
+    add_breadcrumb @group.name, @group
 
     respond_to do |format|
       format.html # show.html.erb
@@ -73,10 +69,18 @@ class GroupsController < ApplicationController
     end
   end
   
+  # The specified group will be loaded by this action.
+  # Furthermore this action prepare the updating process.
   def edit
     @group = Group.find(params[:id])
+    add_breadcrumb I18n.t("page.breadcrumb.start"), :root_path
+    add_breadcrumb I18n.t("activerecord.models.groupPlural"), :groups_path
+    add_breadcrumb @group.name, @group
+    add_breadcrumb t("group.manage"), edit_group_path(@group)
   end
   
+  # The changes of the specified group will be persist in this action.
+  # It will also return a rendered html and json format back to the requestor.
   def update
     @group = Group.find(params[:id])
 
@@ -86,20 +90,6 @@ class GroupsController < ApplicationController
         format.json { head :no_content }
       else
         format.html { render action: "edit", error: t("update.failed") }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @group = Group.find(params[:id])
-    
-    respond_to do |format|
-      if @group.destroy
-        format.html { redirect_to groups_path, notice: "#{t(activerecord.models.group)}#{t(destroy.successful)}" }
-        format.json { head :no_content }
-      else
-        format.html { render action: "destroy", error: "#{t(activerecord.models.group)}#{t(destroy.failed)}" }
         format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end

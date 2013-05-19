@@ -11,12 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508113235) do
+ActiveRecord::Schema.define(:version => 20130512194626) do
 
   create_table "assessments", :force => true do |t|
     t.integer  "points"
+    t.integer  "rank_id"
+    t.integer  "user_id"
+    t.integer  "topic_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "exams", :force => true do |t|
+    t.integer  "points"
+    t.integer  "wbt_id"
+    t.integer  "assessment_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "groups", :force => true do |t|
@@ -30,31 +41,23 @@ ActiveRecord::Schema.define(:version => 20130508113235) do
     t.integer "user_id"
   end
 
-  create_table "locations", :force => true do |t|
-    t.string   "city"
-    t.string   "zipCode"
-    t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "ranks", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "ranks_users", :id => false, :force => true do |t|
-    t.integer "rank_id"
-    t.integer "user_id"
-    t.integer "topics_id"
-  end
-
   create_table "topics", :force => true do |t|
     t.string   "name"
+    t.string   "description"
+    t.integer  "topic_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "parent_name"
+  end
+
+  create_table "topics_wbts", :id => false, :force => true do |t|
+    t.integer "topic_id"
+    t.integer "wbt_id"
   end
 
   create_table "users", :force => true do |t|
@@ -64,20 +67,23 @@ ActiveRecord::Schema.define(:version => 20130508113235) do
     t.string   "password_digest"
     t.string   "username"
     t.string   "email"
-    t.string   "sex"
+    t.boolean  "sex"
+    t.string   "zipCode"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   create_table "wbts", :force => true do |t|
     t.string   "name"
-    t.binary   "file"
+    t.string   "file"
+    t.integer  "rank_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "mainFile"
     t.string   "description"
-    t.integer  "topic"
-    t.integer  "forRank"
+    t.string   "difficulty"
   end
 
 end

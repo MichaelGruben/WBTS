@@ -34,6 +34,11 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This class represents one group with the attribute name.
+# Also this class contains many user instances and belongs to many user instances.
+# The name of this group shall be unique.
+# It derived from the base class ActiveRecord::Base.
+# Therefore an instance of this class provides all CRUD (create, read, update and delete) operations.
 class Group < ActiveRecord::Base
   has_and_belongs_to_many :users
   attr_accessible :name, uniqueness: true

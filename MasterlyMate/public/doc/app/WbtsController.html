@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class WbtsController - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/controllers/wbts_controller.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="ApplicationController.html">ApplicationController</a>
+  
+</nav>
+
+    <!-- Included Modules -->
+<nav id="includes-section" class="section">
+  <h3 class="section-header">Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="SessionsHelper.html">SessionsHelper</a>
+  
+  
+  </ul>
+</nav>
+
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-create">#create</a>
+    
+    <li><a href="#method-i-destroy">#destroy</a>
+    
+    <li><a href="#method-i-edit">#edit</a>
+    
+    <li><a href="#method-i-index">#index</a>
+    
+    <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-show">#show</a>
+    
+    <li><a href="#method-i-start">#start</a>
+    
+    <li><a href="#method-i-update">#update</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Assessment.html">Assessment</a>
+  
+    <li><a href="./AssessmentsController.html">AssessmentsController</a>
+  
+    <li><a href="./BackendController.html">BackendController</a>
+  
+    <li><a href="./Exam.html">Exam</a>
+  
+    <li><a href="./FrontendController.html">FrontendController</a>
+  
+    <li><a href="./Group.html">Group</a>
+  
+    <li><a href="./GroupsController.html">GroupsController</a>
+  
+    <li><a href="./Rank.html">Rank</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./Topic.html">Topic</a>
+  
+    <li><a href="./TopicsController.html">TopicsController</a>
+  
+    <li><a href="./TopicsHelper.html">TopicsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Wbt.html">Wbt</a>
+  
+    <li><a href="./WbtsController.html">WbtsController</a>
+  
+    <li><a href="./WbtsHelper.html">WbtsHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class WbtsController</h1>
+
+  <div id="description" class="description">
+    
+<p>This controller handles all managing actions of a WBT. All used breadcrumbs
+will be initialized in the desired actions. This controller is using up to
+now for all actions except the start and the update<a
+href="Exam.html">Exam</a> actions the default layout. This controller
+handles also the start action of the selected WBT, which will execute it.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action will persist the new WBT instance in the database. After
+successful saving the requestor will be redirected to index view, which is
+displaying a list of all WBTs. Otherwise the user will get on the same page
+an error message. This action will also copy the uploaded and temporary on
+the server saved WBT folder to  the public directory.</p>
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:wbt</span>])
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:wbt</span>][<span class="ruby-value">:file</span>].<span class="ruby-identifier">original_filename</span> <span class="ruby-keyword">and</span> <span class="ruby-constant">FileTest</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-node">&quot;public/upload/#{params[:wbt][:file].original_filename}&quot;</span>)
+    <span class="ruby-identifier">existingWbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;file = ?&quot;</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:wbt</span>][<span class="ruby-value">:file</span>].<span class="ruby-identifier">original_filename</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">existingWbt</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">file</span> = <span class="ruby-identifier">existingWbt</span>.<span class="ruby-identifier">file</span>
+      <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">mainFile</span> = <span class="ruby-identifier">existingWbt</span>.<span class="ruby-identifier">mainFile</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">upload</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">topics</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">topic</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">assignWbtToSubTopics</span>(<span class="ruby-identifier">topic</span>, <span class="ruby-ivar">@wbt</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">wbts_path</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;WBT #{t(&quot;create.successful&quot;)}&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;new&quot;</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;WBT #{t(&quot;create.failed&quot;)}&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- create-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- create-method -->
+
+    
+      <div id="method-i-destroy" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">destroy</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action will remove the selected WBT from the database. After
+successful removing the requestor will be redirected to the index view,
+which will display a list of all available WBTs. Otherwise the user will
+get on the same page an error message. This action will also remove the
+whole folder for the WBT from the public directory.</p>
+          
+
+          
+          <div class="method-source-code" id="destroy-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">destroy</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-string">&quot;public/upload/&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@wbt</span>[<span class="ruby-value">:file</span>])
+  
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">destroy</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:back</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;WBT #{t(&quot;destroy.successful&quot;)}&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;destroy&quot;</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;WBT #{t(&quot;destroy.failed&quot;)}&quot;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- destroy-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- destroy-method -->
+
+    
+      <div id="method-i-edit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">edit</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action will initiate and prepare the updating process of a WBT. It
+will load the specified WBT instance and render the update form as html
+format.</p>
+          
+
+          
+          <div class="method-source-code" id="edit-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;page.breadcrumb.start&quot;</span>), <span class="ruby-value">:root_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;activerecord.models.wbtPlural&quot;</span>), <span class="ruby-identifier">wbts_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-ivar">@wbt</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;wbt.manage&quot;</span>), <span class="ruby-identifier">edit_wbt_path</span>(<span class="ruby-ivar">@wbt</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- edit-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- edit-method -->
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action will load all available WBTs and render them as html with the
+corresponding index view back to the requestor. The WBTs can also be
+accessed via json format.</p>
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;page.breadcrumb.start&quot;</span>), <span class="ruby-value">:root_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;activerecord.models.wbtPlural&quot;</span>), <span class="ruby-identifier">wbts_path</span>
+  <span class="ruby-ivar">@wbts</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">all</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbts</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- index-method -->
+
+    
+      <div id="method-i-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action will initiate and prepare the creation process of a new WBT. It
+will create a new and empty WBT instance and render the empty edit form as
+html format.</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;page.breadcrumb.start&quot;</span>), <span class="ruby-value">:root_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;activerecord.models.wbtPlural&quot;</span>), <span class="ruby-identifier">wbts_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;wbt.new&quot;</span>), <span class="ruby-identifier">new_wbt_path</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># new.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+      <div id="method-i-show" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The action will load the selected WBT and display it’s detailed information
+with the corresponding show view.</p>
+          
+
+          
+          <div class="method-source-code" id="show-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;page.breadcrumb.start&quot;</span>), <span class="ruby-value">:root_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;activerecord.models.wbtPlural&quot;</span>), <span class="ruby-identifier">wbts_path</span>
+  <span class="ruby-identifier">add_breadcrumb</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">name</span>, <span class="ruby-ivar">@wbt</span>
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> <span class="ruby-comment"># show.html.erb</span>
+    <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show-method -->
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action is responsible for executing the desired WBT. It will check if
+the user already has a assessment of this topic. If not this action will
+create a new assessment according to this topic and it will assign it to
+the current user. The same will be done by the exams of the assessment.
+After this initialization process the user will be redirected to a new
+browser tab, which  is displaying the main entry page of the WBT.</p>
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@site</span> = <span class="ruby-string">&quot;/upload/&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">file</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;/&quot;</span><span class="ruby-operator">+</span><span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">mainFile</span>
+  <span class="ruby-identifier">assessment</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;topic_id = ?&quot;</span>, <span class="ruby-identifier">params</span>[<span class="ruby-value">:topic</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">assessment</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">newExam</span> = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">newExam</span>.<span class="ruby-identifier">wbt_id</span> = <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">newExam</span>.<span class="ruby-identifier">points</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">newExam</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-ivar">@exam</span> = <span class="ruby-identifier">newExam</span>
+    <span class="ruby-identifier">newAssessment</span> = <span class="ruby-constant">Assessment</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">newAssessment</span>.<span class="ruby-identifier">topic</span> = <span class="ruby-constant">Topic</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:topic</span>])
+    <span class="ruby-identifier">newAssessment</span>.<span class="ruby-identifier">rank_id</span> = <span class="ruby-value">1</span>
+    <span class="ruby-identifier">newAssessment</span>.<span class="ruby-identifier">points</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">newAssessment</span>.<span class="ruby-identifier">exams</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">newExam</span>
+    <span class="ruby-identifier">newAssessment</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-ivar">@assessment</span> = <span class="ruby-identifier">newAssessment</span>
+    <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">assessments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">newAssessment</span>
+    <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">currentAssessment</span> = <span class="ruby-identifier">assessment</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-ivar">@assessment</span> = <span class="ruby-identifier">currentAssessment</span>
+    <span class="ruby-identifier">exam</span> = <span class="ruby-identifier">currentAssessment</span>.<span class="ruby-identifier">exams</span>.<span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;wbt_id = ?&quot;</span>, <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">exam</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">newExam</span> = <span class="ruby-constant">Exam</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">newExam</span>.<span class="ruby-identifier">wbt_id</span> = <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">id</span>
+      <span class="ruby-identifier">newExam</span>.<span class="ruby-identifier">points</span> = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">newExam</span>.<span class="ruby-identifier">save</span>
+      <span class="ruby-ivar">@exam</span> = <span class="ruby-identifier">newExam</span>
+      <span class="ruby-identifier">currentAssessment</span>.<span class="ruby-identifier">exams</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">newExam</span>
+      <span class="ruby-identifier">currentAssessment</span>.<span class="ruby-identifier">save</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">currentExam</span> = <span class="ruby-identifier">exam</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-ivar">@exam</span> = <span class="ruby-identifier">currentExam</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- start-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- start-method -->
+
+    
+      <div id="method-i-update" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">update</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This action will persist the changes made of the selected WBT in the
+database. After successful saving the requestor will be redirected to the
+show view. Otherwise the user will get on the edit page an error message.</p>
+          
+
+          
+          <div class="method-source-code" id="update-source">
+            <pre><span class="ruby-comment"># File app/controllers/wbts_controller.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
+  <span class="ruby-ivar">@wbt</span> = <span class="ruby-constant">Wbt</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+
+  <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:wbt</span>])
+      <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">topics</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">topic</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">assignWbtToSubTopics</span>(<span class="ruby-identifier">topic</span>, <span class="ruby-ivar">@wbt</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@wbt</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;update.successful&quot;</span>) }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">head</span> <span class="ruby-value">:no_content</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;edit&quot;</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>(<span class="ruby-string">&quot;update.failed&quot;</span>) }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@wbt</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> <span class="ruby-value">:unprocessable_entity</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- update-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- update-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

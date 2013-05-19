@@ -34,34 +34,5 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<h1>Listing wbts</h1>
-
-<table class="mmTable">
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>file</th>
-    <th>Mainfile</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @wbts.each do |wbt| %>
-  <tr>
-    <td><%= wbt.name %></td>
-    <td><%= wbt.description %></td>
-    <td><%= wbt.file %></td>
-    <td><%= wbt.mainFile %></td>
-    <td><%= link_to 'Show', wbt %></td>
-    <td><%= link_to 'Edit', edit_wbt_path(wbt) %></td>
-    <td><%= link_to 'Destroy', wbt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to 'Start', wbt, method: :start, target: "_blank" %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to content_tag(:span, "New wbt", class:"button"), new_wbt_path %>
+<h1><%= t("activerecord.models.wbtPlural") %></h1>
+<%= render(partial: "wbts", locals: { collection: @wbts, deleteButton: true, hideStartButton: true }) %>

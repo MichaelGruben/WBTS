@@ -34,18 +34,6 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @topic.name %>
-</p>
-
-<p>
-  <b>&Uuml;bergeordnetetes Thema:</b>
-  <%= @topic.parent_name %>
-</p>
-
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= render partial: "shared/resourceHeader", locals: { modelInstance: @topic, headerValue: @topic.name, editPath: edit_topic_path(@topic) } %>
+<p><%= @topic.description %></p>
+<%= render partial: "subtopicsAndWbts", locals: { topicCollection: @topic.topics, modelInstance: @topic } %>

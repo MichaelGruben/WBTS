@@ -34,52 +34,18 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This class represents one topic with the attributes name and description.
+# Also this class contains many topics (subtopics), many assessments and belongs to topic (parent topic) 
+# and has many wbt instances and belongs to many wbt instances.
+# The name of this wbt shall be unique and a mandatory field.
+# It derived from the base class ActiveRecord::Base.
+# Therefore an instance of this class provides all CRUD (create, read, update and delete) operations.
 class Topic < ActiveRecord::Base
-  attr_accessible :name, :parent_name
-=begin    
-  def initialize(name)
-    @name = name
-    childTopics = Array.new(0)
-  end
-  
- #Methods 
-  def addTopic(topic)
-    childTopics[childTopics.length] = topic
-  end
-  
-  def searchTopicByName(nameOfSearchedTopic)
-    i = 0
-    while i < childTopics.length do
-      if childTopics[i].name == nameOfSearchedTopic
-        return topic
-      end
-      i += 1
-    end
-    return -1
-  end  
- 
-  def deleteTopic(nameDeleteTopic)
-    i = 0
-    while i < childTopics.length do
-      if childTopics[i].name == nameDeleteTopic
-        j = 0
-        while j < i do
-          tempArray1[j] = childTopics[j]
-          j += 1
-        end
-        j = childTopics.length - 1
-        while j > i do
-          tempArray2[j] = childTopics[j]
-          j -= 1
-        end
-        childTopics = tempArray1 + tempArray2
-      end
-        
-      end
-    end
-           
-  def getAllTopics()
-    return childTopics
-  end
-=end      
+  belongs_to :topic
+  has_many :topics
+  has_and_belongs_to_many :wbts
+  has_many :assessments
+  attr_accessible :name, :description, :topic_id, :wbt_ids, :topic_ids
+  validates :name, presence: true
+  validates :name, uniqueness: { case_sensitive: false }
 end

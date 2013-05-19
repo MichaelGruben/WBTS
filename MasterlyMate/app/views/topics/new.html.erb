@@ -34,8 +34,7 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<h1>New topic</h1>
-
-<%= render partial: 'form' %>
-
-<%= link_to 'Back', topics_path %>
+<fieldset>
+	<legend><%= t("topic.new") %></legend>
+	<%= render(partial: "form") %>
+</fieldset>

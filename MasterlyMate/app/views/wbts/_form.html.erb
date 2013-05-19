@@ -35,20 +35,88 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 -->
 
 <%= form_for(@wbt) do |f| %>
-  <%= validateFieldsOf @wbt %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :file %><br />
-    <%= f.file_field :file %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= validateFieldsOf(@wbt) %>
+  <% writeProtected ||= false %>
+  
+  <table cellspacing="0" cellpadding="2" border="0">
+  	<tr>
+  		<td>
+  			<%= f.label :name %>
+  		</td>
+  		<td>
+  			<%= f.text_field :name, readonly: writeProtected, disabled: writeProtected %>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td valign="top">
+  			<%= f.label :description %>
+  		</td>
+  		<td>
+  			<%= f.text_area :description, cols: 60, rows: 7, readonly: writeProtected, disabled: writeProtected %>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td>
+  			<%= f.label :file %>
+  		</td>
+  		<td>
+  			<%= f.file_field :file, readonly: writeProtected, disabled: writeProtected %>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td>
+  			<%= f.label :rank %>
+  		</td>
+  		<td>
+  			<%= f.collection_select :rank_id, Rank.all, :id, :translated_name, readonly: writeProtected, disabled: writeProtected %>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td>
+  			<%= f.label :difficulty %>
+  		</td>
+  		<td>
+  			<select id="wbt_difficulty" name="wbt[difficulty]">
+  				<%
+  				difficultyLevels = getDifficultLevels
+  				difficultyLevels.each do |level|
+  				%>
+  					<option value="<%= level %>"><%= t(level) %></option>
+  				<% end %>
+  			</select>
+  		</td>
+  	</tr>
+  	<tr>
+  		<td style="vertical-align: top;">
+  			<%= f.label :topics %>
+  		</td>
+  		<td>
+  			<ul class="withoutStyleType">
+  			<% Topic.where("topic_id is null").order("name").each do |topic| %>
+  				<% if writeProtected %>
+  					<fieldset disabled="disabled">
+  				<% else %>
+  					<fieldset>
+  				<% end %>
+  					<legend><%= topic.name %></legend>
+  					<li><label><%= check_box_tag :topic_ids, topic.id, @wbt.topics.include?(topic), :name => 'wbt[topic_ids][]'%><u><%= topic.name %></u></label></li>
+  					<%= generate_TopicHierarchy(topic, @wbt) %>
+  				</fieldset><br />
+			<% end %>
+			</ul>
+  		</td>
+  	</tr>
+  </table>
+  
+  <% if !writeProtected %>
+  	<br />
+  	<% if defined?(submitButtonLabel) %>
+    	<%= f.submit submitButtonLabel %>
+    <% else %>
+    	<%= f.submit %>
+    <% end %>
+    <%= link_to content_tag(:span, t("record.update.cancel"), class: "button"), @wbt %>
+  <% end %>
+  
 <% end %>

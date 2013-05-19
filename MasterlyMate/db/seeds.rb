@@ -43,7 +43,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Group.create([ {name: "Registered"}, {name: "Administrator"} ])
-Rank.create([ {name: "ranks.Novice"}, {name: "ranks.Competence"}, {name: "ranks.Proficiency"}, {name: "ranks.Expertise"}, {name: "ranks.Mastery"} ])
+Rank.create([ {name: "rank.novice"}, {name: "rank.competence"}, {name: "rank.proficiency"}, {name: "rank.expertise"}, {name: "rank.mastery"} ])
 # create super user with pw 'admin'
 user = User.new
 user.username = "admin"

@@ -34,6 +34,10 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# The base controller. All controllers will inherit from this controller.
+# This base controller is also defining the default layout, which will be the "frontend" layout.
+# Therefore all derived controllers will use this layout as default.
+# Provides also protection against XSS and XSRF attacks.
 class ApplicationController < ActionController::Base
   protect_from_forgery
   layout "frontend"
@@ -44,6 +48,8 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_locale
   
+  # Get the permission rights of the current user.
+  # This will be done by the Ability class of the CanCan gem.
   def current_ability
     user = -1
     begin

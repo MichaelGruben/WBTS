@@ -34,23 +34,10 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<p id="notice"><%= notice %></p>
-
+<%= render partial: "shared/resourceHeader", locals: { modelInstance: @wbt, headerValue: @wbt.name, editPath: edit_wbt_path(@wbt) } %>
 <p>
-  <b>Name:</b>
-  <%= @wbt.name %>
+	<%= @wbt.description %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @wbt.description %>
-</p>
-
-<p>
-  <b>file:</b>
-  <%= @wbt.file %>
-</p>
-
-
-<%= link_to 'Edit', edit_wbt_path(@wbt) %> |
-<%= link_to 'Back', wbts_path %>
+<h2><%= t("wbt.assignedTopics") %>: <%= @wbt.topics.count %></h2>
+<%= render partial: "topics/topics", locals: { collection: @wbt.topics.order("name"), hideAddButton: true } %>

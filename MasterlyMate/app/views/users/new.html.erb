@@ -34,4 +34,7 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<%= render partial: "shared/register" %>
+<fieldset>
+	<legend><%= t("register.fieldsetLegend") %></legend>
+	<%= render(partial: "shared/form", locals: { hideCancelButton: true, submitButtonLabel: t("register.submit"), modelInstance: @user, modelAttributes: [:username, :email, :password, :password_confirmation] }) %>
+</fieldset>

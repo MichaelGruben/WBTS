@@ -34,10 +34,11 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<div class="language_switcher">
-	<%= t "page.language.select" %>: 
-	<select class="combobox lang_switcher">
+<div class="ui-widget language_switcher">
+	<label><%= t("page.language.select") %>: </label>
+	<select id="combobox" class="lang_switcher">
 		<option value="de"><%= t("page.language.german") %></option>
 		<option value="en"><%= t("page.language.english") %></option>
-	</select><br />
+	</select>
+	<br />
 </div>

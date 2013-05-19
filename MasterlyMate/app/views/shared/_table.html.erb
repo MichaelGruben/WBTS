@@ -1,0 +1,158 @@
+<!--
+	Copyright 2013 Michael Gruben, Julian Babics, Benjamin Merkle
+
+This file is part of Masterly Mate.
+
+Masterly Mate is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at
+your option) any later version.
+
+Masterly Mate is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Masterly Mate.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von Masterly Mate.
+
+Masterly Mate ist Freie Software: Sie können es unter den Bedingungen
+der GNU Affero General Public License, wie von der Free Software
+Foundation, Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+Masterly Mate wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN
+ZWECK.
+Siehe die GNU Affero General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU Affero General Public License zusammen
+mit Masterly Mate erhalten haben. Wenn nicht, siehe
+<http://www.gnu.org/licenses/>.
+-->
+
+<%
+tableClass ||= "mmTable"
+hideDeleteButton ||= false
+hideEditButton ||= false
+hideDetailButton ||= false
+additionalLinks ||= []
+colspan = 3 + additionalLinks.count
+detailPath ||= ""
+assignedTopicForWbt ||= nil
+%>
+
+<table class=<%= tableClass %>>
+
+<tr>
+	<% columns.each do |key, value| %>
+		<th><%= value %></th>
+	<% end %>
+	
+	<th colspan=<%= colspan %>></th>
+</tr>
+
+<% modelInstances.each do |modelInstance| %>
+	<tr>
+		<% columns.each do |key, value| %>
+			<td>
+				<% 
+				translate = shouldTransferRecordValue(key)
+				if translate
+					key = key.gsub("t#", "")
+				end
+				%>
+				<% unless modelInstance.column_for_attribute(key).nil? %>
+					<% if ["date", "datetime", "time"].include? modelInstance.column_for_attribute(key).type.to_s %>
+						<% timeValue = modelInstance.send("#{key}") %>
+						<% unless timeValue.nil? %>
+							<%= l timeValue %>
+						<% end %>
+					<% elsif ["sex"].include? key.to_s %>
+						<% sex = modelInstance.send("#{key}") %>
+						<% if sex == true %>
+							<%= t("activerecord.attributes.user.gender.female") %>
+						<% elsif sex == false %>
+							<%= t("activerecord.attributes.user.gender.male") %>
+						<% end %>
+					<% else %>
+						<% if translate %>
+							<%= I18n.t(modelInstance.send("#{key}")) %>
+						<% else %>
+							<%= modelInstance.send("#{key}") %>
+						<% end %>
+					<% end %>
+				<% else %>
+					<% if key.include? "_id:" %>
+						<% stringArray = key.split(":") %>
+						<% if stringArray.count == 2 %>
+							<%
+							resourceTitle = stringArray[0].gsub("_id", "")
+							resourceValue = modelInstance.send("#{resourceTitle}")
+							if !resourceValue.nil? %>
+								<% if translate %>
+									<%= I18n.t(resourceValue.send("#{stringArray[1]}")) %>
+								<% else %>
+									<%= resourceValue.send("#{stringArray[1]}") %>
+								<% end %>
+							<% end %>
+						<% end %>
+					<% end %>
+					<% if key.include? "_ids:" %>
+						<% stringArray = key.split(":") %>
+						<% if stringArray.count == 2 %>
+							<%
+							resourceTitle = stringArray[0].gsub("_ids", "").pluralize
+							resourceValue = modelInstance.send("#{resourceTitle}")
+							if !resourceValue.nil? %>
+								<% if translate %>
+									<%= I18n.t(resourceValue.send("#{stringArray[1]}")) %>
+								<% else %>
+									<%= resourceValue.send("#{stringArray[1]}") %>
+								<% end %>
+							<% end %>
+						<% end %>
+					<% end %>
+				<% end %>
+			</td>
+		<% end %>
+		
+		<% additionalLinks.each do |link| %>
+			<td>
+				<% if "start" == link %>
+					<% if !assignedTopicForWbt.nil? %>
+						<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-play", title: t("record.title.start")), { controller: "wbts", action: "start", id: modelInstance.id, topic: assignedTopicForWbt }, method: :start, target: "_blank" %>
+					<% else %>
+						<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-play", title: t("record.title.start")), modelInstance, method: :start, target: "_blank" %>
+					<% end %>
+				<% end %>
+			</td>
+		<% end %>
+		
+		<td>
+		<% if !hideDetailButton and can? :read, modelInstance %>
+			<% if detailPath.length <= 0 %>
+				<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-folder-open", title: t("record.title.show")), modelInstance %>
+			<% else %>
+				<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-folder-open", title: t("record.title.show")), "#{detailPath}#{modelInstance.id}" %>
+			<% end %>
+		<% end %>
+		</td>
+		<td>
+		<% if !hideEditButton and can? :update, modelInstance %>
+			<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-wrench", title: t("record.title.update")), send("edit_#{resourceName.singularize}_path", modelInstance) %>
+		<% end %>
+		</td>
+		<td>
+		<% if !hideDeleteButton and can? :destroy, modelInstance %>
+			<%= link_to content_tag(:span, "", class: "ui-icon ui-icon-trash", title: t("record.title.destroy")), modelInstance, method: :delete, data: { confirm: t("destroy.ensuring") } %>
+		<% end %>
+		</td>
+		
+	</tr>
+<% end %>
+
+</table>

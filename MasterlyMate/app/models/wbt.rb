@@ -34,6 +34,31 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This class represents one wbt with the attributes name, description, 
+# file (name of the uploaded wbt file), mainfile (path to the main entry file of this wbt) and difficulty level.
+# Also this class contains many exams, many topics and belongs to many topics and belongs to a rank.
+# The name, file, rank and difficulty shall be mandatory fields. Furthermore the name shall be unique.
+# It derived from the base class ActiveRecord::Base.
+# Therefore an instance of this class provides all CRUD (create, read, update and delete) operations.
 class Wbt < ActiveRecord::Base
-  attr_accessible :description, :name, :file, :mainFile, :rankFor
+  has_and_belongs_to_many :topics
+  has_many :exams
+  belongs_to :rank
+  attr_accessible :description, :name, :file, :mainFile, :topic_ids, :rank_id, :difficulty
+  validates :name, :file, :rank_id, :difficulty, presence: true
+  validates :name, uniqueness: { case_sensitive: false }
+  
+  # Returns the number of points for the difficulty level of this wbt.
+  def getDifficultyPoints
+    points = 0
+    if self.difficulty == "difficulty.easy"
+      points = 25
+    elsif self.difficulty == "difficulty.medium"
+      points = 50
+    elsif self.difficulty == "difficulty.difficult"
+      points = 100
+    end
+    points
+  end
+  
 end

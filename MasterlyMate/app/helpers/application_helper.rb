@@ -34,8 +34,12 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This is the base helper, which provides useful methods for general purposes.
 module ApplicationHelper
   
+  # This method is validating the given model instance.
+  # All errors thrown by the model instance, will be displayed in 
+  # an unordered list. Therefore this method will return html content.
   def validateFieldsOf(model)
     returnValue = ""
     if model.errors.any?
@@ -48,15 +52,40 @@ module ApplicationHelper
     returnValue.html_safe
   end
   
+  # This method invokes the csrf_meta_tags method, 
+  # which will provide security against XSS and XSRF attacks.
   def ensureSecurity()
     csrf_meta_tags
   end
   
-  def showCopyright()
-    "&copy;2013 MasterlyMate".html_safe+
-    " | ".html_safe+
-    "<a href=\"https://github.com/dasBKB/WBTS\">Sourcecode</a> | ".html_safe+
-    "<a href=\"./doc/app/\">API-Documentation</a>".html_safe
+  # A comma separated string list will be returned by this method.
+  # The selected attribute value of each element of the collection
+  # will be embedded into the string list
+  def getCommaSeparatedStringListOf(collection, attribute)
+    result = ""
+    elementCounter = 0
+    collection.each do |element|
+      result += element.send("#{attribute}")
+      if elementCounter < collection.count - 1
+        result += ","
+      end
+      elementCounter += 1
+    end
+    result
+  end
+  
+  # This method is used to check if a string value contains 
+  # the pattern t#. If so, the value after t# will be translated 
+  # using the static t method of the I18n class.
+  # The translated value of the given language string will then be
+  # returned by this method.
+  def shouldTransferRecordValue(value)
+    translate = false
+    if value.include? "t#"
+      value = value.gsub("t#", "")
+      translate = true
+    end
+    translate
   end
   
 end

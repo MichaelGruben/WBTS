@@ -34,9 +34,7 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<h1>Editing wbt</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @wbt %> |
-<%= link_to 'Back', wbts_path %>
+<fieldset>
+	<legend><%= t("wbt.manage")%></legend>
+	<%= render partial: "form", locals: { submitButtonLabel: t("wbt.update") } %>
+</fieldset>

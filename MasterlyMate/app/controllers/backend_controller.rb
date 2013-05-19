@@ -34,8 +34,12 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This controller is used for all action handling on the backend.
+# The feature of backend administration is not yet finished on this current version of Masterly Mate.
 class BackendController < ApplicationController
+  layout "backend"
   
+  # This action will render the index view.
   def index
   end
   

@@ -34,4 +34,7 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<%= render partial: "form", locals: { writeProtected: false } %>
+<fieldset>
+	<legend><%= t("profile.manage")%></legend>
+	<%= render partial: "shared/form", locals: { submitButtonLabel: t("profile.update"), modelInstance: @user, modelAttributes: [:username, :email, :firstName, :lastName, :birthdate, :sex, :zipCode, :city, :state] } %>
+</fieldset>

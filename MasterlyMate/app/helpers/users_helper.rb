@@ -34,8 +34,17 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This module is responsible for all useful methods depending on user purposes.
 module UsersHelper
-  def backToUsers
-    link_to "zurueck zur Benutzerliste", users_path
+  
+  # This method will return the url to the selected users statistic page.
+  def user_statistic_link(user)
+    "/#{params[:locale]}/users/#{user.id}/statistic/"
   end
+  
+  # This method is used to initiate the initialization of progressbars for the specified user.
+  def user_progress_link(user)
+    "/#{params[:locale]}/users/#{user.id}/initProgressbars/"
+  end
+  
 end

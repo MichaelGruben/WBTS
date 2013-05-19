@@ -34,8 +34,11 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This controller is used only for rendering the start page.
+# Therefore it contains up to now only the index action.
 class FrontendController < ApplicationController
   
+  # This action is rendering the index view of this controller.
   def index
   end
   

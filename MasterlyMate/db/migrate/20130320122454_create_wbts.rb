@@ -2,8 +2,8 @@ class CreateWbts < ActiveRecord::Migration
   def change
     create_table :wbts do |t|
       t.string :name
-      t.binary :file
-
+      t.string :file
+      t.references :rank
       t.timestamps
     end
   end

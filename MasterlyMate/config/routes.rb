@@ -37,20 +37,25 @@
 MasterlyMate::Application.routes.draw do
     
   scope "(:locale)", :locale => /en|de/ do
-    resources :users#, only: [:new, :create]
+    resources :users do
+      resources :assessments
+    end
     resources :ranks
     resources :groups
-    #resources :assessments
-    resources :locations
     resources :topics
     resources :wbts
   end
   
   # routes without locale
+  match "/users/:id/updateExam" => "users#updateExam"
   match "/administrator" => "backend#index", as: "admin"
   match "/" => "frontend#index", as: "root"
   
   # routes  with locale
+  match "/:locale/users/:id/initProgressbars" => "users#initProgressbars"
+  match "/:locale/users/:id/updateExam" => "users#updateExam"
+  match "/:locale/users/:id/assessments" => "assessments#index", as: "user_assessments_path"
+  match "/:locale/users/:id/assessments/:id" => "assessments#show", as: "user_assessment_path"
   match "/:locale/administrator" => "backend#index", as: "admin"
   match "/:locale/users" => "users#index"
   match "/:locale/login" => "sessions#new", as: "login"
@@ -59,6 +64,7 @@ MasterlyMate::Application.routes.draw do
   match "/:locale/wbts/:id" => "wbts#start"
   match "/:locale/upload/:file/:mainFile" => redirect("/upload/%{file}/%{mainFile}")
   match "/:locale/topics" => "topics#index"
+  match "/:locale/users/:id/statistic/" => "users#statistic", as: "users_statistic"
   match "/:locale/" => "frontend#index", as: "root"
   
   

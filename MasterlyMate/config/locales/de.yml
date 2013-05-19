@@ -38,12 +38,61 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 de:
- ranks:
-  Novice: "Neuling"
-  Competence: "Erfahrener"
-  Proficiency: "Professioneller"
-  Expertise: "Experte"
-  Mastery: "Meister"
+ record:
+  update:
+   cancel: "abbrechen"
+  title:
+   destroy: "entfernen"
+   update: "bearbeiten"
+   show: "details"
+   start: "ausführen"
+ review: "Bewertung"
+ exam:
+  succeeded: "Examen bestanden?"
+ profile:
+  manage: "Profil bearbeiten"
+  update: "Profil aktualisieren"
+  contactDetails: "Kontaktinformationen"
+  statistic:
+   title: "Statistik"
+   wholePoints: "Gesamtpunktzahl"
+   averageRank: "Durchschnittlicher Rang"
+   of: "von"
+   points: "Punkte"
+ wbt:
+  manage: "WBT bearbeiten"
+  update: "WBT aktualisieren"
+  add: "WBT hinzufügen"
+  new: "Neues WBT"
+  assignedTopics: "Zugeordnete Themen"
+ topic:
+  manage: "Thema bearbeiten"
+  update: "Thema aktualisieren"
+  add: "Thema hinzufügen"
+  new: "Neues Thema"
+  noWbts: "Diesem Thema sind noch keine WBT's zugeordnet."
+  addWbt: "WBT diesem Thema zuordnen?"
+  noSubtopics: "Für dieses Thema gibt es noch keine Subthemen."
+  addSubtopic: "Subthema diesem Thema hinzufügen?"
+ rank:
+  novice: "Neuling"
+  competence: "Erfahrener"
+  proficiency: "Professioneller"
+  expertise: "Experte"
+  mastery: "Meister"
+  rank:
+   novice: "Neuling"
+   competence: "Erfahrener"
+   proficiency: "Professioneller"
+   expertise: "Experte"
+   mastery: "Meister"
+ difficulty:
+  easy: "Einfach"
+  medium: "Mittel"
+  difficult: "Schwer"
+ group:
+  manage: "Gruppe bearbeiten"
+  update: "Gruppe aktualisieren"
  page:
   language:
    german: "Deutsch"
@@ -54,6 +103,10 @@ de:
    registration: "Registrierung"
   access:
    denied: "Du bist nicht dazu berechtigt auf den Inhalt dieser Seite zuzugreifen."
+  documentation:
+   url: "API-Dokumentation"
+  sourcecode:
+   url: "Quellcode"
  login:
   notRegistered: "Noch nicht registriert?"
   submit: "anmelden"
@@ -66,6 +119,7 @@ de:
   fieldsetLegend: "Registrierung"
   successful: "Du hast dich erfolgreich registriert"
   submit: "registrieren"
+  failed: "Die Registrierung ist fehlgeschlagen. Bitte versuche es erneut."
  update:
   successful: "Änderungen wurden übernommen"
   failed: "Änderungen konnten nicht übernommen werden"
@@ -73,10 +127,24 @@ de:
   successful: " wurde erfolgreich entfernt"
   failed: " konnte nicht entfernt werden"
   ensuring: "Möchtest Du den Eintrag wirklich entfernen?"
+ create:
+  successful: " wurde erfolgreich erstellt"
+  failed: " konnte nicht erstellt werden"
  activerecord:
   models:
    user: "Benutzer"
    userPlural: "Benutzer"
+   group: "Gruppe"
+   groupPlural: "Gruppen"
+   wbt: "WBT"
+   wbtPlural: "WBT's"
+   topic: "Thema"
+   topicPlural: "Themen"
+   subTopic: "Subthema"
+   subTopicPlural: "Subthemen"
+   rank: "Rang"
+   exam: "Exam"
+   examPlural: "Examen"
   attributes:
    user:
     firstName: "Vorname"
@@ -85,7 +153,29 @@ de:
     email: "E-Mail"
     username: "Nutzername"
     sex: "Geschlecht"
+    zipCode: "Postleitzahl"
+    city: "Stadt"
+    state: "Bundesland"
+    gender:
+     male: "Männlich"
+     female: "Weiblich"
     password: "Kennwort"
     password_digest: "Kennwort"
     password_confirmation: "Kennwort wiederholen"
     password_digest_confirmation: "Kennwort wiederholen"
+   wbt:
+    description: "Beschreibung"
+    name: "Name"
+    file: "WBT Datei"
+    mainFile: "Einstiegsdatei"
+    topics: "Themen"
+    rank: "Erforderlicher Rang"
+    difficulty: "Schwierigkeit"
+   topic:
+    name: "Name"
+    description: "Beschreibung"
+    topic_id: "Übergeordnetes Thema"
+    subTopicCount: "Anzahl Subthemen"
+    wbtCount: "Anzahl WBT's"
+   assessment:
+    examCount: "Anzahl Examen"

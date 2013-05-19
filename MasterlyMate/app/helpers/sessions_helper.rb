@@ -34,12 +34,15 @@
 #<http://www.gnu.org/licenses/>.
 #########################################################################
 
+# This module is responsible for all useful methods depending on session purposes.
 module SessionsHelper
   
+  # check if the current user is signed in or not
   def signed_in?
     session[:user_id]
   end
   
+  # This method will return the user instance of the current user
   def current_user
     User.find(session[:user_id])
   end

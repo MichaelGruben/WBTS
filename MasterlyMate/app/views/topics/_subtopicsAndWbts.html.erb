@@ -1,0 +1,77 @@
+<!--
+	Copyright 2013 Michael Gruben, Julian Babics, Benjamin Merkle
+
+This file is part of Masterly Mate.
+
+Masterly Mate is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or (at
+your option) any later version.
+
+Masterly Mate is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with Masterly Mate.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von Masterly Mate.
+
+Masterly Mate ist Freie Software: Sie können es unter den Bedingungen
+der GNU Affero General Public License, wie von der Free Software
+Foundation, Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+Masterly Mate wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN
+ZWECK.
+Siehe die GNU Affero General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU Affero General Public License zusammen
+mit Masterly Mate erhalten haben. Wenn nicht, siehe
+<http://www.gnu.org/licenses/>.
+-->
+
+<%
+topicCollection ||= []
+modelInstance ||= nil
+%>
+
+<% if topicCollection.count > 0 %>
+	<div class="accordion">
+		<% topicCollection.each do |topic| %>
+		<h3><%= topic.name %></h3>
+		<div>
+			<% if topic.wbts.count > 0 %>
+				<h4><%= t("activerecord.models.wbtPlural") %></h4>
+				<% if current_user.assessments.include? topic %>
+					<% users_rank = topic.assessments.select("rank_id").where("user_id = ?", current_user.id).first %>
+					<%= render(partial: "wbts/wbts", locals: { assignedTopic: topic, collection: topic.wbts.where("rank_id <= ?", users_rank).order("name,difficulty") }) %>
+				<% else %>
+					<%= render(partial: "wbts/wbts", locals: { assignedTopic: topic, collection: topic.wbts.where("rank_id = 1").order("name,difficulty") }) %>
+				<% end %>
+			<% end %>
+			<% if topic.topics.count > 0 %>
+				<h4><%= t("activerecord.models.subTopicPlural") %></h4>
+				<%= render(partial: "topics", locals: { collection: topic.topics }) %>
+			<% end %>
+		</div>
+		<% end %>
+	</div>
+<% elsif !modelInstance.nil? %>
+	<h4><%= t("activerecord.models.wbtPlural") %></h4>
+	<% if current_user.assessments.include? modelInstance %>
+		<% users_rank = modelInstance.assessments.select("rank_id").where("user_id = ?", current_user.id).first %>
+		<%= render(partial: "wbts/wbts", locals: { assignedTopic: modelInstance, collection: modelInstance.wbts.where("rank_id <= ?", users_rank).order("name,difficulty") }) %>
+	<% else %>
+		<%= render(partial: "wbts/wbts", locals: { assignedTopic: modelInstance, collection: modelInstance.wbts.where("rank_id = 1").order("name,difficulty") }) %>
+	<% end %>
+<% end %>
+
+<br />
+<% if can? :create, Topic %>
+	<%= link_to content_tag(:span, t("topic.add"), class:"button"), new_topic_path %>
+	<br /><br />
+<% end %>

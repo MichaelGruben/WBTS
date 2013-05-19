@@ -95,24 +95,28 @@ SimpleNavigation::Configuration.run do |navigation|
     
     if signed_in?
       if can? :read, User
-        primary.item :users, "Benutzer", users_path, :class => "navigation_entry"
+        primary.item :users, t("activerecord.models.userPlural"), users_path, :class => "navigation_entry"
       end
       if can? :read, Group
-        primary.item :groups, "Gruppen", groups_path, :class => "navigation_entry"
+        primary.item :groups, t("activerecord.models.groupPlural"), groups_path, :class => "navigation_entry"
       end
       if can? :read, Wbt
-        primary.item :wbts, "WBTS", wbts_path, :class => "navigation_entry"
+        primary.item :wbts, t("activerecord.models.wbtPlural"), wbts_path, :class => "navigation_entry"
       end
       if can? :read, Topic
-        primary.item :topics, "Topics", topics_path, :class => "navigation_entry"
+        primary.item :topics, t("activerecord.models.topicPlural"), topics_path, :class => "navigation_entry"
+      end
+      if can? :read, Assessment
+        primary.item :assessments, "Assessments", user_assessments_path(current_user), :class => "navigation_entry"
       end
       if can? :read, current_user
         primary.item :users, current_user.username, "/#{params[:locale]}/users/#{current_user.id}/", :class => "navigation_entry"
       end
     else
       # add here navigation list for guests
-      
     end
+    
+    
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.
     # Conditions are part of the options. They are evaluated in the context of the views,

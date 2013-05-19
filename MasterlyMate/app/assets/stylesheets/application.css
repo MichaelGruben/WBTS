@@ -140,6 +140,7 @@ input[type="submit"], .button {
 	padding: 5px;
 	color: #FFFFFF;
 	cursor: pointer;
+	font-size: 10pt;
 }
 .validation_hint {
 	color: #333 !important;
@@ -173,7 +174,7 @@ input[type="submit"], .button {
 	font-size: .7em;
 }
 .mmTable th {
-	text-align: center;
+	/*text-align: center;*/
 	border-bottom: 2px solid #FFFFFF;
 }
 .mmTable tr.odd td {
@@ -189,4 +190,58 @@ h1, h2, h3, h4, h5, h6 {
 	text-transform: none;
 	font-weight: 100;
 	margin-bottom: 20px;
+}
+h1.mainHeader {
+	font-size: 32pt;
+}
+ul.withoutStyleType {
+	list-style-type: none;
+	-webkit-padding-start: 15px;
+}
+ul.withoutStyleType li label {
+	cursor: pointer;
+}
+.progressbar.small {
+	width: 40px;
+	height: 7px;
+}
+.ui-accordion .ui-accordion-content {
+	padding: 5px !important;
+}
+.ui-accordion .ui-accordion-content th {
+	font-weight: bold;
+	font-size: 0.8em;
+}
+.accordion {
+	width: 100%;
+	overflow: hidden;
+}
+.accordion.ui-accordion.ui-widget.ui-helper-reset {
+	overflow: auto;
+	width: 100%;
+}
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+.custom-combobox-toggle {
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* support: IE7 */
+    *height: 1.7em;
+    *top: 0.1em;
+}
+.custom-combobox-input {
+	margin: 0;
+    padding: 0.3em;
+}
+.ui-button.ui-widget.ui-state-default.ui-button-icon-only.custom-combobox-toggle.ui-corner-right {
+	height: 30px;
+	margin: 0;
+}
+.ui-accordion-content h2, .ui-accordion-content h3, .ui-accordion-content h4 {
+	color: #f9f2bd;
 }

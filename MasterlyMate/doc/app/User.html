@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>class User - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/models/user.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">ActiveRecord::Base
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-find_by_username_none_case_sensitive">::find_by_username_none_case_sensitive</a>
+    
+    <li><a href="#method-i-available_points-3F">#available_points?</a>
+    
+    <li><a href="#method-i-average_rank-3F">#average_rank?</a>
+    
+    <li><a href="#method-i-competence_count">#competence_count</a>
+    
+    <li><a href="#method-i-expertise_count">#expertise_count</a>
+    
+    <li><a href="#method-i-group-3F">#group?</a>
+    
+    <li><a href="#method-i-mastery_count">#mastery_count</a>
+    
+    <li><a href="#method-i-novice_count">#novice_count</a>
+    
+    <li><a href="#method-i-proficiency_count">#proficiency_count</a>
+    
+    <li><a href="#method-i-reached_points-3F">#reached_points?</a>
+    
+    <li><a href="#method-i-user_main_topics_by_rank">#user_main_topics_by_rank</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Ability.html">Ability</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Assessment.html">Assessment</a>
+  
+    <li><a href="./AssessmentsController.html">AssessmentsController</a>
+  
+    <li><a href="./BackendController.html">BackendController</a>
+  
+    <li><a href="./Exam.html">Exam</a>
+  
+    <li><a href="./FrontendController.html">FrontendController</a>
+  
+    <li><a href="./Group.html">Group</a>
+  
+    <li><a href="./GroupsController.html">GroupsController</a>
+  
+    <li><a href="./Rank.html">Rank</a>
+  
+    <li><a href="./SessionsController.html">SessionsController</a>
+  
+    <li><a href="./SessionsHelper.html">SessionsHelper</a>
+  
+    <li><a href="./Topic.html">Topic</a>
+  
+    <li><a href="./TopicsController.html">TopicsController</a>
+  
+    <li><a href="./TopicsHelper.html">TopicsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UsersController.html">UsersController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+    <li><a href="./Wbt.html">Wbt</a>
+  
+    <li><a href="./WbtsController.html">WbtsController</a>
+  
+    <li><a href="./WbtsHelper.html">WbtsHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class User</h1>
+
+  <div id="description" class="description">
+    
+<p>This class represents one user with the attributes birthdate, email,
+firstname,  lastname, password, username, sex, city, state and zipcode.
+Also this class contains many assessments, many groups and belongs to many
+groups. The username, email and password shall be mandatory fields.
+Furthermore the username and email shall be unique. It derived from the
+base class ActiveRecord::Base. Therefore an instance of this class provides
+all CRUD (create, read, update and delete) operations.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-find_by_username_none_case_sensitive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_by_username_none_case_sensitive</span><span
+            class="method-args">(username)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method return the user specified by the given none case sensitive
+username</p>
+          
+
+          
+          <div class="method-source-code" id="find_by_username_none_case_sensitive-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find_by_username_none_case_sensitive</span>(<span class="ruby-identifier">username</span>)
+  <span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;lower(username) = ?&quot;</span>, <span class="ruby-identifier">username</span>.<span class="ruby-identifier">downcase</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_by_username_none_case_sensitive-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_by_username_none_case_sensitive-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-available_points-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_points?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the max number of possible points for this user</p>
+          
+
+          
+          <div class="method-source-code" id="available_points-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available_points?</span>
+  <span class="ruby-identifier">points</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">assessment</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assessment</span>.<span class="ruby-identifier">topic</span>.<span class="ruby-identifier">wbts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">wbt</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">points</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">wbt</span>.<span class="ruby-identifier">getDifficultyPoints</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  (<span class="ruby-identifier">points</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">points</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- available_points-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- available_points-3F-method -->
+
+    
+      <div id="method-i-average_rank-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">average_rank?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method will return the translated name of this users average rank
+according to the users proceeded assessments.</p>
+          
+
+          
+          <div class="method-source-code" id="average_rank-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">average_rank?</span>
+  <span class="ruby-identifier">average_rank</span> = <span class="ruby-string">&quot;-&quot;</span>
+  <span class="ruby-identifier">assessmentCount</span> = (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">relativeValues</span> = { <span class="ruby-string">&quot;rank.novice&quot;</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">novice_count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">assessmentCount</span>.<span class="ruby-identifier">to_f</span>) * <span class="ruby-value">100</span>,
+    <span class="ruby-string">&quot;rank.competence&quot;</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">competence_count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">assessmentCount</span>.<span class="ruby-identifier">to_f</span>) * <span class="ruby-value">100</span>,
+    <span class="ruby-string">&quot;rank.proficiency&quot;</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">proficiency_count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">assessmentCount</span>.<span class="ruby-identifier">to_f</span>) * <span class="ruby-value">100</span>,
+    <span class="ruby-string">&quot;rank.expertise&quot;</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">expertise_count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">assessmentCount</span>.<span class="ruby-identifier">to_f</span>) * <span class="ruby-value">100</span>,
+     <span class="ruby-string">&quot;rank.mastery&quot;</span> =<span class="ruby-operator">&gt;</span> (<span class="ruby-identifier">mastery_count</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">assessmentCount</span>.<span class="ruby-identifier">to_f</span>) * <span class="ruby-value">100</span>
+  }
+  <span class="ruby-identifier">frequentRank</span> = <span class="ruby-identifier">relativeValues</span>.<span class="ruby-identifier">map</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span><span class="ruby-operator">==</span><span class="ruby-identifier">relativeValues</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">max</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span> }.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">average_rank</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">t</span>(<span class="ruby-identifier">frequentRank</span>)
+  <span class="ruby-identifier">average_rank</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- average_rank-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- average_rank-3F-method -->
+
+    
+      <div id="method-i-competence_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">competence_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of assessment, in which this user has the rank
+competence.</p>
+          
+
+          
+          <div class="method-source-code" id="competence_count-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">competence_count</span>
+  <span class="ruby-identifier">rank_count</span>(<span class="ruby-value">2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- competence_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- competence_count-method -->
+
+    
+      <div id="method-i-expertise_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expertise_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of assessment, in which this user has the rank
+expertise.</p>
+          
+
+          
+          <div class="method-source-code" id="expertise_count-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expertise_count</span>
+  <span class="ruby-identifier">rank_count</span>(<span class="ruby-value">4</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- expertise_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- expertise_count-method -->
+
+    
+      <div id="method-i-group-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">group?</span><span
+            class="method-args">(group)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method checks if this user is a member of the given group</p>
+          
+
+          
+          <div class="method-source-code" id="group-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">group?</span>(<span class="ruby-identifier">group</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-keyword">self</span>.<span class="ruby-identifier">groups</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">group</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">camelize</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- group-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- group-3F-method -->
+
+    
+      <div id="method-i-mastery_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mastery_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of assessment, in which this user has the rank mastery.</p>
+          
+
+          
+          <div class="method-source-code" id="mastery_count-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mastery_count</span>
+  <span class="ruby-identifier">rank_count</span>(<span class="ruby-value">5</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mastery_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mastery_count-method -->
+
+    
+      <div id="method-i-novice_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">novice_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of assessment, in which this user has the rank novice.</p>
+          
+
+          
+          <div class="method-source-code" id="novice_count-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">novice_count</span>
+  <span class="ruby-identifier">rank_count</span>(<span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- novice_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- novice_count-method -->
+
+    
+      <div id="method-i-proficiency_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">proficiency_count</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of assessment, in which this user has the rank
+proficiency.</p>
+          
+
+          
+          <div class="method-source-code" id="proficiency_count-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">proficiency_count</span>
+  <span class="ruby-identifier">rank_count</span>(<span class="ruby-value">3</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- proficiency_count-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- proficiency_count-method -->
+
+    
+      <div id="method-i-reached_points-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reached_points?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the whole number of reached points for the users assessments</p>
+          
+
+          
+          <div class="method-source-code" id="reached_points-3F-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reached_points?</span>
+  <span class="ruby-identifier">points</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">points</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">sum</span>(<span class="ruby-string">&quot;points&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">points</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reached_points-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reached_points-3F-method -->
+
+    
+      <div id="method-i-user_main_topics_by_rank" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_main_topics_by_rank</span><span
+            class="method-args">(rank)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method returns a list of the main topics for this user according to
+the users proceeded assessments.</p>
+          
+
+          
+          <div class="method-source-code" id="user_main_topics_by_rank-source">
+            <pre><span class="ruby-comment"># File app/models/user.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_main_topics_by_rank</span>(<span class="ruby-identifier">rank</span>)
+  <span class="ruby-identifier">mainTopics</span> = []
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">assessments</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&quot;distinct(topic_id)&quot;</span>)
+  <span class="ruby-identifier">mainTopics</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- user_main_topics_by_rank-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- user_main_topics_by_rank-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -34,9 +34,29 @@ mit Masterly Mate erhalten haben. Wenn nicht, siehe
 <http://www.gnu.org/licenses/>.
 -->
 
-<div><h1>mein WBT</h1>
-	
-</div>
+<script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+
+<h1><%= @wbt.name %></h1>
+<p>
+	<%= @wbt.description %>
+</p>
+
+<span style="visibility: hidden; display: none;">
+	<%= link_to "", "#", user: @assessment.user.id, assessment: @assessment.id, exam: @exam.id, wbt: @wbt.id, class: "update_info" %>
+</span>
+
+<fieldset>
+	<legend><%= t("review") %></legend>
+<label><%= t("exam.succeeded") %></label>
+<% if @exam.points > 0 %>
+	<input type="radio" name="ExamSucceeded" value="1" checked="checked"> Ja
+	<input type="radio" name="ExamSucceeded" value="0"> Nein
+<% else %>
+	<input type="radio" name="ExamSucceeded" value="1"> Ja
+	<input type="radio" name="ExamSucceeded" value="0" checked="checked"> Nein
+<% end %>
+</fieldset><br />
 
 <div>
 <iframe src="http://localhost:3000/<%= @site %>" width="1024px" height="768px" frameborder = 0 name="wbtframe">
